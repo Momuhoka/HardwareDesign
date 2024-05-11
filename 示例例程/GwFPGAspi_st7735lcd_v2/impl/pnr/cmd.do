@@ -1,0 +1,12 @@
+-d D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\impl\gwsynthesis\SPIlcd_prj.vg
+-p GW1N-1-QFN48-6
+-pn GW1N-LV1QN48C6/I5
+-cst D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\src\LCDAir_pre1.cst
+-cfg D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-correct_hold 1
+-route_maxfan 23
