@@ -16,3 +16,5 @@ Tang nano 9k
 | **Package:** | QFN88P |
 | **Speed Grade:** | C6/I5 |
 | **Core Voltage:** | LV |
+
+*注意项目文件不要有英文路径!*  

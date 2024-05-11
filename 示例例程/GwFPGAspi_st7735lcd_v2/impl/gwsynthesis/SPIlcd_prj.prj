@@ -2,21 +2,22 @@
 <!DOCTYPE gowin-synthesis-project>
 <Project>
     <Version>beta</Version>
-    <Device id="GW1N-1" package="QFN48" speed="6" partNumber="GW1N-LV1QN48C6/I5"/>
+    <Device id="GW1NR-9C" package="QFN88P" speed="6" partNumber="GW1NR-LV9QN88PC6/I5"/>
     <FileList>
-        <File path="D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\src\centerctrl.v" type="verilog"/>
-        <File path="D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\src\gowin_prom\ascii_pROM.v" type="verilog"/>
-        <File path="D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\src\lcd_init.v" type="verilog"/>
-        <File path="D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\src\lcd_show_char.v" type="verilog"/>
-        <File path="D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\src\lcd_write.v" type="verilog"/>
-        <File path="D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\src\show_string_number_ctrl.v" type="verilog"/>
-        <File path="D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\src\spi_st7735lcd.v" type="verilog"/>
-        <File path="D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
+        <File path="F:\硬件课设\HardwareDesign\示例例程\GwFPGAspi_st7735lcd_v2\src\centerctrl.v" type="verilog"/>
+        <File path="F:\硬件课设\HardwareDesign\示例例程\GwFPGAspi_st7735lcd_v2\src\gowin_prom\ascii_pROM.v" type="verilog"/>
+        <File path="F:\硬件课设\HardwareDesign\示例例程\GwFPGAspi_st7735lcd_v2\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
+        <File path="F:\硬件课设\HardwareDesign\示例例程\GwFPGAspi_st7735lcd_v2\src\lcd_init.v" type="verilog"/>
+        <File path="F:\硬件课设\HardwareDesign\示例例程\GwFPGAspi_st7735lcd_v2\src\lcd_show_char.v" type="verilog"/>
+        <File path="F:\硬件课设\HardwareDesign\示例例程\GwFPGAspi_st7735lcd_v2\src\lcd_write.v" type="verilog"/>
+        <File path="F:\硬件课设\HardwareDesign\示例例程\GwFPGAspi_st7735lcd_v2\src\show_string_number_ctrl.v" type="verilog"/>
+        <File path="F:\硬件课设\HardwareDesign\示例例程\GwFPGAspi_st7735lcd_v2\src\spi_st7735lcd.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>
+        <Option type="dsp_balance" value="0"/>
         <Option type="looplimit" value="2000"/>
-        <Option type="output_file" value="D:\PXMDownloads\GwFPGAspi_st7735lcd_v2\impl\gwsynthesis\SPIlcd_prj.vg"/>
+        <Option type="output_file" value="F:\硬件课设\HardwareDesign\示例例程\GwFPGAspi_st7735lcd_v2\impl\gwsynthesis\SPIlcd_prj.vg"/>
         <Option type="print_all_synthesis_warning" value="0"/>
         <Option type="ram_rw_check" value="1"/>
         <Option type="verilog_language" value="verilog-2001"/>

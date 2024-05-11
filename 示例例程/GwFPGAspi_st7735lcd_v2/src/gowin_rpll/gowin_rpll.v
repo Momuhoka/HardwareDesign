@@ -1,10 +1,10 @@
-//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2022 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: IP file
-//GOWIN Version: V1.9.9 Beta-3
-//Part Number: GW1N-LV1QN48C6/I5
-//Device: GW1N-1
-//Created Time: Fri Apr 26 16:39:15 2024
+//GOWIN Version: V1.9.8.05
+//Part Number: GW1NR-LV9QN88PC6/I5
+//Device: GW1NR-9C
+//Created Time: Sat May 11 22:15:52 2024
 
 module Gowin_rPLL (clkout, clkin);
 
@@ -37,13 +37,13 @@ rPLL rpll_inst (
     .FDLY({gw_gnd,gw_gnd,gw_gnd,gw_gnd})
 );
 
-defparam rpll_inst.FCLKIN = "12";
+defparam rpll_inst.FCLKIN = "100";
 defparam rpll_inst.DYN_IDIV_SEL = "false";
-defparam rpll_inst.IDIV_SEL = 2;
+defparam rpll_inst.IDIV_SEL = 0;
 defparam rpll_inst.DYN_FBDIV_SEL = "false";
-defparam rpll_inst.FBDIV_SEL = 24;
+defparam rpll_inst.FBDIV_SEL = 3;
 defparam rpll_inst.DYN_ODIV_SEL = "false";
-defparam rpll_inst.ODIV_SEL = 8;
+defparam rpll_inst.ODIV_SEL = 2;
 defparam rpll_inst.PSDA_SEL = "0000";
 defparam rpll_inst.DYN_DA_EN = "true";
 defparam rpll_inst.DUTYDA_SEL = "1000";
@@ -58,6 +58,6 @@ defparam rpll_inst.CLKOUTD_BYPASS = "false";
 defparam rpll_inst.DYN_SDIV_SEL = 2;
 defparam rpll_inst.CLKOUTD_SRC = "CLKOUT";
 defparam rpll_inst.CLKOUTD3_SRC = "CLKOUT";
-defparam rpll_inst.DEVICE = "GW1N-1";
+defparam rpll_inst.DEVICE = "GW1NR-9C";
 
 endmodule //Gowin_rPLL
