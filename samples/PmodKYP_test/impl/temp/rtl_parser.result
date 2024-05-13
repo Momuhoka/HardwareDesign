@@ -1,0 +1,36 @@
+[
+ {
+  "InstFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
+  "InstLine" : 6,
+  "InstName" : "PmodKYPD_Top",
+  "ModuleFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
+  "ModuleLine" : 6,
+  "ModuleName" : "PmodKYPD_Top",
+  "SubInsts" : [
+   {
+    "InstFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
+    "InstLine" : 20,
+    "InstName" : "uPLL",
+    "ModuleFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "Gowin_rPLL"
+   },
+   {
+    "InstFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
+    "InstLine" : 26,
+    "InstName" : "Decoder",
+    "ModuleFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Decoder.v",
+    "ModuleLine" : 5,
+    "ModuleName" : "PmodKYPD_Decoder"
+   },
+   {
+    "InstFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
+    "InstLine" : 34,
+    "InstName" : "LShow",
+    "ModuleFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/LED_Show.v",
+    "ModuleLine" : 6,
+    "ModuleName" : "LED_Show"
+   }
+  ]
+ }
+]

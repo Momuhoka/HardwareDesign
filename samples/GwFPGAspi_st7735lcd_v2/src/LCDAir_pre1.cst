@@ -20,7 +20,7 @@ IO_LOC "lcd_dc" 55;
 IO_PORT "lcd_dc" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
 IO_LOC "lcd_rst" 54;
 IO_PORT "lcd_rst" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
-IO_LOC "sys_rst_n" 14;
+IO_LOC "sys_rst_n" 3;
 IO_PORT "sys_rst_n" PULL_MODE=UP;
 IO_LOC "xtal_clk" 52;
 IO_PORT "xtal_clk" PULL_MODE=UP;

@@ -1,0 +1,28 @@
+{
+ "Files" : [
+  {
+   "Path" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/LED_Show.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Decoder.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

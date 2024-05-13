@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="PmodKYPD_Top">
+    <SubModule name="uPLL"/>
+    <SubModule name="Decoder" Register="28" Lut="83"/>
+    <SubModule name="LShow" Register="5" Lut="5"/>
+</Module>
