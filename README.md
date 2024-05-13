@@ -18,3 +18,8 @@ Tang nano 9k
 | **Core Voltage:** | LV |
 
 *注意项目文件不要有英文路径!*  
+
+## 接线参考(由新到旧) ##
+
+![image](https://github.com/Momuhoka/HardwareDesign/blob/main/photos/2024-5-13.jpg)  
+*2024-5-13 矩阵键盘和SPI显示屏*
