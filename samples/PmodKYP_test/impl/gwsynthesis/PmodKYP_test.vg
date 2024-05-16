@@ -1,21 +1,21 @@
 //
 //Written by GowinSynthesis
 //Product Version "GowinSynthesis V1.9.8.05"
-//Mon May 13 13:49:12 2024
+//Thu May 16 18:07:23 2024
 
 //Source file index table:
-//file0 "\F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Decoder.v"
-//file1 "\F:/workspace/HardwareDesign/samples/PmodKYP_test/src/gowin_rpll/gowin_rpll.v"
+//file0 "\F:/workspace/HardwareDesign/samples/PmodKYP_test/src/LED_Show.v"
+//file1 "\F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Decoder.v"
 //file2 "\F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v"
-//file3 "\F:/workspace/HardwareDesign/samples/PmodKYP_test/src/LED_Show.v"
+//file3 "\F:/workspace/HardwareDesign/samples/PmodKYP_test/src/gowin_rpll/rPLL_25_100.v"
 `timescale 100 ps/100 ps
-module Gowin_rPLL (
+module rPLL_25_100 (
   xtal_clk_d,
-  clk
+  clk_100Mhz
 )
 ;
 input xtal_clk_d;
-output clk;
+output clk_100Mhz;
 wire clkoutp_o;
 wire clkoutd_o;
 wire clkoutd3_o;
@@ -23,7 +23,7 @@ wire lock_o;
 wire VCC;
 wire GND;
   rPLL rpll_inst (
-    .CLKOUT(clk),
+    .CLKOUT(clk_100Mhz),
     .CLKOUTP(clkoutp_o),
     .CLKOUTD(clkoutd_o),
     .CLKOUTD3(clkoutd3_o),
@@ -57,9 +57,9 @@ defparam rpll_inst.DYN_IDIV_SEL="false";
 defparam rpll_inst.DYN_ODIV_SEL="false";
 defparam rpll_inst.DYN_SDIV_SEL=2;
 defparam rpll_inst.FBDIV_SEL=3;
-defparam rpll_inst.FCLKIN="100";
+defparam rpll_inst.FCLKIN="25";
 defparam rpll_inst.IDIV_SEL=0;
-defparam rpll_inst.ODIV_SEL=2;
+defparam rpll_inst.ODIV_SEL=4;
 defparam rpll_inst.PSDA_SEL="0000";
   VCC VCC_cZ (
     .V(VCC)
@@ -67,15 +67,15 @@ defparam rpll_inst.PSDA_SEL="0000";
   GND GND_cZ (
     .G(GND)
 );
-endmodule /* Gowin_rPLL */
+endmodule /* rPLL_25_100 */
 module PmodKYPD_Decoder (
-  clk,
+  clk_100Mhz,
   Row_d,
   Col_d,
   data
 )
 ;
-input clk;
+input clk_100Mhz;
 input [3:0] Row_d;
 output [3:0] Col_d;
 output [3:0] data;
@@ -786,172 +786,172 @@ defparam Col_1_s4.INIT=8'hF7;
   DFFSE Col_2_s0 (
     .Q(Col_d[2]),
     .D(n351_6),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CE(Col_1_7),
     .SET(n11_6) 
 );
   DFFSE Col_1_s0 (
     .Q(Col_d[1]),
     .D(n356_9),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CE(Col_1_7),
     .SET(n11_6) 
 );
   DFFR sclk_19_s0 (
     .Q(sclk[19]),
     .D(n198_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n622_3) 
 );
   DFFR sclk_18_s0 (
     .Q(sclk[18]),
     .D(n303_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n623_3) 
 );
   DFFR sclk_17_s0 (
     .Q(sclk[17]),
     .D(n360_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n624_3) 
 );
   DFFS sclk_16_s0 (
     .Q(sclk[16]),
     .D(n305_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .SET(n623_3) 
 );
   DFFS sclk_15_s0 (
     .Q(sclk[15]),
     .D(n362_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .SET(n624_3) 
 );
   DFFR sclk_14_s0 (
     .Q(sclk[14]),
     .D(n203_7),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n622_3) 
 );
   DFFR sclk_13_s0 (
     .Q(sclk[13]),
     .D(n204_7),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n622_3) 
 );
   DFFR sclk_12_s0 (
     .Q(sclk[12]),
     .D(n309_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n623_3) 
 );
   DFFR sclk_11_s0 (
     .Q(sclk[11]),
     .D(n366_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n624_3) 
 );
   DFFS sclk_10_s0 (
     .Q(sclk[10]),
     .D(n311_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .SET(n623_3) 
 );
   DFFS sclk_9_s0 (
     .Q(sclk[9]),
     .D(n368_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .SET(n624_3) 
 );
   DFFR sclk_8_s0 (
     .Q(sclk[8]),
     .D(n369_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n624_3) 
 );
   DFFS sclk_7_s0 (
     .Q(sclk[7]),
     .D(n370_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .SET(n624_3) 
 );
   DFFR sclk_6_s0 (
     .Q(sclk[6]),
     .D(n371_7),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n624_3) 
 );
   DFFS sclk_5_s0 (
     .Q(sclk[5]),
     .D(n372_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .SET(n624_3) 
 );
   DFFR sclk_4_s0 (
     .Q(sclk[4]),
     .D(n213_7),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n622_3) 
 );
   DFFR sclk_3_s0 (
     .Q(sclk[3]),
     .D(n402_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n11_6) 
 );
   DFFR sclk_2_s0 (
     .Q(sclk[2]),
     .D(n215_7),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n622_3) 
 );
   DFFR sclk_1_s0 (
     .Q(sclk[1]),
     .D(n216_7),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .RESET(n622_3) 
 );
   DFFS sclk_0_s0 (
     .Q(sclk[0]),
     .D(n241_5),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .SET(n640_3) 
 );
   DFFE DecodeOut_3_s0 (
     .Q(data[3]),
     .D(n382_7),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CE(DecodeOut_1_8) 
 );
   DFFE DecodeOut_2_s0 (
     .Q(data[2]),
     .D(n327_8),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CE(DecodeOut_2_14) 
 );
   DFFE DecodeOut_1_s0 (
     .Q(data[1]),
     .D(n384_8),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CE(DecodeOut_1_8) 
 );
   DFFE DecodeOut_0_s0 (
     .Q(data[0]),
     .D(n385_7),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CE(DecodeOut_2_10) 
 );
   DFFRE Col_3_s0 (
     .Q(Col_d[3]),
     .D(VCC),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CE(Col_1_7),
     .RESET(n11_6) 
 );
   DFFS Col_0_s4 (
     .Q(Col_d[0]),
     .D(n357_13),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .SET(n11_6) 
 );
 defparam Col_0_s4.INIT=1'b1;
@@ -963,13 +963,13 @@ defparam Col_0_s4.INIT=1'b1;
 );
 endmodule /* PmodKYPD_Decoder */
 module LED_Show (
-  clk,
+  clk_100Mhz,
   sys_rst_n_d,
   data,
   led_d
 )
 ;
-input clk;
+input clk_100Mhz;
 input sys_rst_n_d;
 input [3:0] data;
 output [4:0] led_d;
@@ -983,31 +983,31 @@ wire GND;
   DFFC led_4_s0 (
     .Q(led_d[4]),
     .D(VCC),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CLEAR(n6_6) 
 );
   DFFC led_3_s0 (
     .Q(led_d[3]),
     .D(n7_6),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CLEAR(n6_6) 
 );
   DFFC led_2_s0 (
     .Q(led_d[2]),
     .D(n8_6),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CLEAR(n6_6) 
 );
   DFFC led_1_s0 (
     .Q(led_d[1]),
     .D(n9_6),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CLEAR(n6_6) 
 );
   DFFC led_0_s0 (
     .Q(led_d[0]),
     .D(n10_6),
-    .CLK(clk),
+    .CLK(clk_100Mhz),
     .CLEAR(n6_6) 
 );
   INV n7_s2 (
@@ -1052,7 +1052,7 @@ output [3:0] Col;
 output [5:0] led;
 wire xtal_clk_d;
 wire sys_rst_n_d;
-wire clk;
+wire clk_100Mhz;
 wire [3:0] Row_d;
 wire [3:0] Col_d;
 wire [3:0] data;
@@ -1123,18 +1123,18 @@ wire GND;
     .O(led[5]),
     .I(led_d[4]) 
 );
-  Gowin_rPLL uPLL (
+  rPLL_25_100 rPLL_init (
     .xtal_clk_d(xtal_clk_d),
-    .clk(clk)
+    .clk_100Mhz(clk_100Mhz)
 );
   PmodKYPD_Decoder Decoder (
-    .clk(clk),
+    .clk_100Mhz(clk_100Mhz),
     .Row_d(Row_d[3:0]),
     .Col_d(Col_d[3:0]),
     .data(data[3:0])
 );
   LED_Show LShow (
-    .clk(clk),
+    .clk_100Mhz(clk_100Mhz),
     .sys_rst_n_d(sys_rst_n_d),
     .data(data[3:0]),
     .led_d(led_d[4:0])

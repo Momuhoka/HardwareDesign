@@ -1,11 +1,11 @@
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\PmodKYP_test\src\PmodKYPD_Decoder.v'
-Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\PmodKYP_test\src\gowin_rpll\gowin_rpll.v'
-Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\PmodKYP_test\src\PmodKYPD_Top.v'
 Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\PmodKYP_test\src\LED_Show.v'
+Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\PmodKYP_test\src\PmodKYPD_Decoder.v'
+Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\PmodKYP_test\src\PmodKYPD_Top.v'
+Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\PmodKYP_test\src\gowin_rpll\rPLL_25_100.v'
 Compiling module 'PmodKYPD_Top'("F:\workspace\HardwareDesign\samples\PmodKYP_test\src\PmodKYPD_Top.v":6)
-Compiling module 'Gowin_rPLL'("F:\workspace\HardwareDesign\samples\PmodKYP_test\src\gowin_rpll\gowin_rpll.v":9)
+Compiling module 'rPLL_25_100'("F:\workspace\HardwareDesign\samples\PmodKYP_test\src\gowin_rpll\rPLL_25_100.v":9)
 Compiling module 'PmodKYPD_Decoder'("F:\workspace\HardwareDesign\samples\PmodKYP_test\src\PmodKYPD_Decoder.v":5)
 Compiling module 'LED_Show'("F:\workspace\HardwareDesign\samples\PmodKYP_test\src\LED_Show.v":6)
 NOTE  (EX0101) : Current top module is "PmodKYPD_Top"

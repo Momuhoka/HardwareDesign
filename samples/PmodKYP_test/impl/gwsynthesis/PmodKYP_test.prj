@@ -4,10 +4,10 @@
     <Version>beta</Version>
     <Device id="GW1NR-9C" package="QFN88P" speed="6" partNumber="GW1NR-LV9QN88PC6/I5"/>
     <FileList>
-        <File path="F:\workspace\HardwareDesign\samples\PmodKYP_test\src\PmodKYPD_Decoder.v" type="verilog"/>
-        <File path="F:\workspace\HardwareDesign\samples\PmodKYP_test\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
-        <File path="F:\workspace\HardwareDesign\samples\PmodKYP_test\src\PmodKYPD_Top.v" type="verilog"/>
         <File path="F:\workspace\HardwareDesign\samples\PmodKYP_test\src\LED_Show.v" type="verilog"/>
+        <File path="F:\workspace\HardwareDesign\samples\PmodKYP_test\src\PmodKYPD_Decoder.v" type="verilog"/>
+        <File path="F:\workspace\HardwareDesign\samples\PmodKYP_test\src\PmodKYPD_Top.v" type="verilog"/>
+        <File path="F:\workspace\HardwareDesign\samples\PmodKYP_test\src\gowin_rpll\rPLL_25_100.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>

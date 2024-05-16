@@ -13,18 +13,18 @@ module PmodKYPD_Top(
     output wire [5:0] led
 );
 
-wire clk;    // 100MHz
+wire clk_100Mhz;
 wire [3:0] data;    // 译码数据
 
 // 锁相环获取所需频率
-Gowin_rPLL uPLL(
-    .clkout(clk), // 输出频率
-    .clkin(xtal_clk) // 输入频率
+rPLL_25_100 rPLL_init(
+    .clkout(clk_100Mhz), // 输出100Mhz
+    .clkin(xtal_clk) // 输入系统频率
 );
 
 // 矩阵键盘译码
 PmodKYPD_Decoder Decoder(
-    .clk(clk),
+    .clk(clk_100Mhz),
     .Row(Row),
     .Col(Col),
     .DecodeOut(data)
@@ -32,7 +32,7 @@ PmodKYPD_Decoder Decoder(
 
 // LED输出
 LED_Show LShow(
-    .clk(clk),
+    .clk(clk_100Mhz),
     .sys_rst_n(sys_rst_n),
     .data(data),
     .led(led)

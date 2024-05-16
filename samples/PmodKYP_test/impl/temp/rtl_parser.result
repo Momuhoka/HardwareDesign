@@ -10,10 +10,10 @@
    {
     "InstFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
     "InstLine" : 20,
-    "InstName" : "uPLL",
-    "ModuleFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/gowin_rpll/gowin_rpll.v",
+    "InstName" : "rPLL_init",
+    "ModuleFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/gowin_rpll/rPLL_25_100.v",
     "ModuleLine" : 9,
-    "ModuleName" : "Gowin_rPLL"
+    "ModuleName" : "rPLL_25_100"
    },
    {
     "InstFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
