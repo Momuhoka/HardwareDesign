@@ -1,8 +1,8 @@
--d F:\workspace\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\gwsynthesis\SPIlcd_prj.vg
+-d D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\gwsynthesis\SPIlcd_prj.vg
 -p GW1NR-9C-QFN88P-6
 -pn GW1NR-LV9QN88PC6/I5
--cst F:\workspace\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\LCDAir_pre1.cst
--cfg F:\workspace\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\device.cfg
+-cst D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\LCDAir_pre1.cst
+-cfg D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\device.cfg
 -bit
 -tr
 -ph

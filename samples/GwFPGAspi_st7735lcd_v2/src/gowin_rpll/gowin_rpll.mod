@@ -6,21 +6,21 @@
 
 -mod_name Gowin_rPLL
 -file_name gowin_rpll
--path F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/
+-path D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/
 -type PLL
 -rPll true
 -file_type vlg
 -dev_type GW1NR-9C
 -dyn_idiv_sel false
--idiv_sel 1
+-idiv_sel 7
 -dyn_fbdiv_sel false
--fbdiv_sel 4
+-fbdiv_sel 26
 -dyn_odiv_sel false
--odiv_sel 2
+-odiv_sel 4
 -dyn_da_en true
 -rst_sig false
 -rst_sig_p false
--fclkin 100
+-fclkin 27
 -clkfb_sel 0
 -en_lock false
 -clkout_bypass false

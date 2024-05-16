@@ -1,35 +1,35 @@
 {
  "Files" : [
   {
-   "Path" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/centerctrl.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/centerctrl.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/ascii_pROM.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/ascii_pROM.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_init.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_init.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_write.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_write.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/show_string_number_ctrl.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/show_string_number_ctrl.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v",
    "Type" : "verilog"
   }
  ],
@@ -37,7 +37,7 @@
 
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/impl/temp/rtl_parser.result",
+ "ResultFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/impl/temp/rtl_parser.result",
  "Top" : "",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"

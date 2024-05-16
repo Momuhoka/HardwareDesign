@@ -1,65 +1,65 @@
 [
  {
-  "InstFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
+  "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
   "InstLine" : 16,
   "InstName" : "spi_st7735lcd",
-  "ModuleFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
+  "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
   "ModuleLine" : 16,
   "ModuleName" : "spi_st7735lcd",
   "SubInsts" : [
    {
-    "InstFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
     "InstLine" : 47,
     "InstName" : "uPLL",
-    "ModuleFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v",
     "ModuleLine" : 9,
     "ModuleName" : "Gowin_rPLL"
    },
    {
-    "InstFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
     "InstLine" : 50,
     "InstName" : "lcd_init_inst",
-    "ModuleFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_init.v",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_init.v",
     "ModuleLine" : 7,
     "ModuleName" : "lcd_init"
    },
    {
-    "InstFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
     "InstLine" : 67,
     "InstName" : "muxcontrol_inst",
-    "ModuleFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/centerctrl.v",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/centerctrl.v",
     "ModuleLine" : 6,
     "ModuleName" : "muxcontrol"
    },
    {
-    "InstFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
     "InstLine" : 85,
     "InstName" : "lcd_write_inst",
-    "ModuleFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_write.v",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_write.v",
     "ModuleLine" : 7,
     "ModuleName" : "lcd_write"
    },
    {
-    "InstFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
     "InstLine" : 99,
     "InstName" : "show_string_number_inst",
-    "ModuleFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/show_string_number_ctrl.v",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/show_string_number_ctrl.v",
     "ModuleLine" : 16,
     "ModuleName" : "show_string_number_ctrl"
    },
    {
-    "InstFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
     "InstLine" : 114,
     "InstName" : "lcd_show_char_inst",
-    "ModuleFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v",
     "ModuleLine" : 6,
     "ModuleName" : "lcd_show_char",
     "SubInsts" : [
      {
-      "InstFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v",
+      "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v",
       "InstLine" : 181,
       "InstName" : "your_instance_name",
-      "ModuleFile" : "F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/ascii_pROM.v",
+      "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/ascii_pROM.v",
       "ModuleLine" : 9,
       "ModuleName" : "ascii_pROM"
      }

@@ -1,7 +1,7 @@
-Reading netlist file: "F:\workspace\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\gwsynthesis\SPIlcd_prj.vg"
-Parsing netlist file "F:\workspace\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\gwsynthesis\SPIlcd_prj.vg" completed
+Reading netlist file: "D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\gwsynthesis\SPIlcd_prj.vg"
+Parsing netlist file "D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\gwsynthesis\SPIlcd_prj.vg" completed
 Processing netlist completed
-Reading constraint file: "F:\workspace\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\LCDAir_pre1.cst"
+Reading constraint file: "D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\LCDAir_pre1.cst"
 Physical Constraint parsed completed
 Running placement......
 [10%] Placement Phase 0 completed
@@ -20,10 +20,10 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "F:\workspace\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\SPIlcd_prj.power.html" completed
-Generate file "F:\workspace\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\SPIlcd_prj.pin.html" completed
-Generate file "F:\workspace\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\SPIlcd_prj.rpt.html" completed
-Generate file "F:\workspace\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\SPIlcd_prj.rpt.txt" completed
-Generate file "F:\workspace\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\SPIlcd_prj.tr.html" completed
-Mon May 13 15:07:33 2024
+Generate file "D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\SPIlcd_prj.power.html" completed
+Generate file "D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\SPIlcd_prj.pin.html" completed
+Generate file "D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\SPIlcd_prj.rpt.html" completed
+Generate file "D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\SPIlcd_prj.rpt.txt" completed
+Generate file "D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\pnr\SPIlcd_prj.tr.html" completed
+Fri May 17 05:19:43 2024
 

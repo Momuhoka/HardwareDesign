@@ -1,17 +1,17 @@
 //
 //Written by GowinSynthesis
 //Product Version "GowinSynthesis V1.9.8.05"
-//Mon May 13 15:07:28 2024
+//Fri May 17 05:19:38 2024
 
 //Source file index table:
-//file0 "\F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/centerctrl.v"
-//file1 "\F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/ascii_pROM.v"
-//file2 "\F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v"
-//file3 "\F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_init.v"
-//file4 "\F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v"
-//file5 "\F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_write.v"
-//file6 "\F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/show_string_number_ctrl.v"
-//file7 "\F:/workspace/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v"
+//file0 "\D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/centerctrl.v"
+//file1 "\D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/ascii_pROM.v"
+//file2 "\D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_init.v"
+//file3 "\D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v"
+//file4 "\D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_write.v"
+//file5 "\D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/show_string_number_ctrl.v"
+//file6 "\D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v"
+//file7 "\D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v"
 `timescale 100 ps/100 ps
 module Gowin_rPLL (
   xtal_clk_d,
@@ -60,10 +60,10 @@ defparam rpll_inst.DYN_FBDIV_SEL="false";
 defparam rpll_inst.DYN_IDIV_SEL="false";
 defparam rpll_inst.DYN_ODIV_SEL="false";
 defparam rpll_inst.DYN_SDIV_SEL=2;
-defparam rpll_inst.FBDIV_SEL=3;
-defparam rpll_inst.FCLKIN="100";
-defparam rpll_inst.IDIV_SEL=0;
-defparam rpll_inst.ODIV_SEL=2;
+defparam rpll_inst.FBDIV_SEL=25;
+defparam rpll_inst.FCLKIN="27";
+defparam rpll_inst.IDIV_SEL=6;
+defparam rpll_inst.ODIV_SEL=4;
 defparam rpll_inst.PSDA_SEL="0000";
   VCC VCC_cZ (
     .V(VCC)
