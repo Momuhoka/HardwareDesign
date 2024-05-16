@@ -17,7 +17,7 @@ wire clk_100Mhz;
 wire [3:0] data;    // 译码数据
 
 // 锁相环获取所需频率
-rPLL_25_100 rPLL_init(
+rPLL_27_100 rPLL_init(
     .clkout(clk_100Mhz), // 输出100Mhz
     .clkin(xtal_clk) // 输入系统频率
 );

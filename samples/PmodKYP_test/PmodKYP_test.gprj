@@ -11,7 +11,7 @@
         <File path="src/PmodKYPD.v" type="file.verilog" enable="0"/>
         <File path="src/PmodKYPD_Decoder.v" type="file.verilog" enable="1"/>
         <File path="src/PmodKYPD_Top.v" type="file.verilog" enable="1"/>
-        <File path="src/gowin_rpll/rPLL_25_100.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/rPLL_27_100.v" type="file.verilog" enable="1"/>
         <File path="src/PmodKYP_test.cst" type="file.cst" enable="1"/>
     </FileList>
 </Project>

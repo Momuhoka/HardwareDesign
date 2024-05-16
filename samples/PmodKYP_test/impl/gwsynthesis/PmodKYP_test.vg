@@ -1,15 +1,15 @@
 //
 //Written by GowinSynthesis
 //Product Version "GowinSynthesis V1.9.8.05"
-//Thu May 16 18:07:23 2024
+//Fri May 17 05:22:00 2024
 
 //Source file index table:
-//file0 "\F:/workspace/HardwareDesign/samples/PmodKYP_test/src/LED_Show.v"
-//file1 "\F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Decoder.v"
-//file2 "\F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v"
-//file3 "\F:/workspace/HardwareDesign/samples/PmodKYP_test/src/gowin_rpll/rPLL_25_100.v"
+//file0 "\D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/LED_Show.v"
+//file1 "\D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Decoder.v"
+//file2 "\D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v"
+//file3 "\D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/gowin_rpll/rPLL_27_100.v"
 `timescale 100 ps/100 ps
-module rPLL_25_100 (
+module rPLL_27_100 (
   xtal_clk_d,
   clk_100Mhz
 )
@@ -56,9 +56,9 @@ defparam rpll_inst.DYN_FBDIV_SEL="false";
 defparam rpll_inst.DYN_IDIV_SEL="false";
 defparam rpll_inst.DYN_ODIV_SEL="false";
 defparam rpll_inst.DYN_SDIV_SEL=2;
-defparam rpll_inst.FBDIV_SEL=3;
-defparam rpll_inst.FCLKIN="25";
-defparam rpll_inst.IDIV_SEL=0;
+defparam rpll_inst.FBDIV_SEL=25;
+defparam rpll_inst.FCLKIN="27";
+defparam rpll_inst.IDIV_SEL=6;
 defparam rpll_inst.ODIV_SEL=4;
 defparam rpll_inst.PSDA_SEL="0000";
   VCC VCC_cZ (
@@ -67,7 +67,7 @@ defparam rpll_inst.PSDA_SEL="0000";
   GND GND_cZ (
     .G(GND)
 );
-endmodule /* rPLL_25_100 */
+endmodule /* rPLL_27_100 */
 module PmodKYPD_Decoder (
   clk_100Mhz,
   Row_d,
@@ -1123,7 +1123,7 @@ wire GND;
     .O(led[5]),
     .I(led_d[4]) 
 );
-  rPLL_25_100 rPLL_init (
+  rPLL_27_100 rPLL_init (
     .xtal_clk_d(xtal_clk_d),
     .clk_100Mhz(clk_100Mhz)
 );

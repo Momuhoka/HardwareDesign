@@ -9,6 +9,10 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_init.v",
    "Type" : "verilog"
   },
@@ -26,10 +30,6 @@
   },
   {
    "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v",
    "Type" : "verilog"
   }
  ],
