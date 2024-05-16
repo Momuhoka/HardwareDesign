@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="PmodKYPD_Top">
+    <SubModule name="rpll_27_100"/>
+    <SubModule name="Decoder" Register="54" Lut="138"/>
+    <SubModule name="Music" Register="22" Lut="124"/>
+    <SubModule name="LShow" Register="6" Lut="5"/>
+</Module>

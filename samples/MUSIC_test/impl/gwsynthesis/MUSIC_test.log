@@ -1,0 +1,33 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\MUSIC_test\src\LED_Show.v'
+Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\MUSIC_test\src\Music.v'
+Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\MUSIC_test\src\PmodKYPD_Decoder.v'
+Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\MUSIC_test\src\PmodKYPD_Top.v'
+Analyzing Verilog file 'F:\workspace\HardwareDesign\samples\MUSIC_test\src\gowin_rpll\rPLL_27_100.v'
+Compiling module 'PmodKYPD_Top'("F:\workspace\HardwareDesign\samples\MUSIC_test\src\PmodKYPD_Top.v":6)
+Compiling module 'rPLL_27_100'("F:\workspace\HardwareDesign\samples\MUSIC_test\src\gowin_rpll\rPLL_27_100.v":9)
+Compiling module 'PmodKYPD_Decoder'("F:\workspace\HardwareDesign\samples\MUSIC_test\src\PmodKYPD_Decoder.v":5)
+Compiling module 'Music'("F:\workspace\HardwareDesign\samples\MUSIC_test\src\Music.v":5)
+Extracting RAM for identifier 'MUSIC'("F:\workspace\HardwareDesign\samples\MUSIC_test\src\Music.v":24)
+Compiling module 'LED_Show'("F:\workspace\HardwareDesign\samples\MUSIC_test\src\LED_Show.v":6)
+NOTE  (EX0101) : Current top module is "PmodKYPD_Top"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "F:\workspace\HardwareDesign\samples\MUSIC_test\impl\gwsynthesis\MUSIC_test.vg" completed
+[100%] Generate report file "F:\workspace\HardwareDesign\samples\MUSIC_test\impl\gwsynthesis\MUSIC_test_syn.rpt.html" completed
+GowinSynthesis finish

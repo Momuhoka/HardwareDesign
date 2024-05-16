@@ -1,0 +1,10 @@
+-d F:\workspace\HardwareDesign\samples\MUSIC_test\impl\gwsynthesis\MUSIC_test.vg
+-p GW1NR-9C-QFN88P-6
+-pn GW1NR-LV9QN88PC6/I5
+-cst F:\workspace\HardwareDesign\samples\MUSIC_test\src\MUSIC_test.cst
+-cfg F:\workspace\HardwareDesign\samples\MUSIC_test\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error

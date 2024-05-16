@@ -1,0 +1,44 @@
+[
+ {
+  "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/PmodKYPD_Top.v",
+  "InstLine" : 6,
+  "InstName" : "PmodKYPD_Top",
+  "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/PmodKYPD_Top.v",
+  "ModuleLine" : 6,
+  "ModuleName" : "PmodKYPD_Top",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/PmodKYPD_Top.v",
+    "InstLine" : 22,
+    "InstName" : "rpll_27_100",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/gowin_rpll/rPLL_27_100.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "rPLL_27_100"
+   },
+   {
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/PmodKYPD_Top.v",
+    "InstLine" : 28,
+    "InstName" : "Decoder",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/PmodKYPD_Decoder.v",
+    "ModuleLine" : 5,
+    "ModuleName" : "PmodKYPD_Decoder"
+   },
+   {
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/PmodKYPD_Top.v",
+    "InstLine" : 38,
+    "InstName" : "Music",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/Music.v",
+    "ModuleLine" : 5,
+    "ModuleName" : "Music"
+   },
+   {
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/PmodKYPD_Top.v",
+    "InstLine" : 47,
+    "InstName" : "LShow",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/LED_Show.v",
+    "ModuleLine" : 6,
+    "ModuleName" : "LED_Show"
+   }
+  ]
+ }
+]
