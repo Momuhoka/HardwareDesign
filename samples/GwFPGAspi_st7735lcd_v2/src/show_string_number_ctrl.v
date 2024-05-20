@@ -5,12 +5,15 @@
 //****************************************************************************************//
 /*
 在屏幕上显示字符串
-第一行中间显示“pxm hust”共8个字符；
-第二行为空；
-第三行最左边显示“TST6”共4个字符； 
-cnt_ascii_num  0   1   2   3  4   5   6   7   8   9  10   11  
-   char        p   x   m      h   u   s   t   T   S   T   6
- ascii码     112,120,109, 32,104,117,115,116, 84, 83, 84, 54 =库内码+32 
+第一行中间显示“KeyBoard”共8个字符；
+第二三四行为低中高音: 160/8=20最多
+LOW> 1 2 3 4 5 6 7 ?
+MID> 1 2 3 4 5 6 7 <
+HIG> 1 2 3 4 5 6 7 ?
+总共8+20*3=68个字符
+cnt_ascii_num  0   1   2   3   4   5   6   7  
+   char        K   e   y   B   o   a   r   d
+ ascii码       75,101,121, 66,111, 97,114,100 = 库内码+32 
 */
 
 module show_string_number_ctrl
@@ -20,16 +23,46 @@ module show_string_number_ctrl
     input       wire            init_done           ,
     input       wire            show_char_done      ,
     
+    input       wire            IsPressed           , // 接收按钮状态信息
+    input       wire    [3:0]   data                , // 接收矩阵键盘数据
+    input       wire    [3:0]   scale               , // 接收当前音调数据
+    
     output      wire            en_size             ,
     output      reg             show_char_flag      ,
     output      reg     [6:0]   ascii_num           ,
     output      reg     [8:0]   start_x             ,
-    output      reg     [8:0]   start_y             
+    output      reg     [8:0]   start_y             ,
+
+    output      reg    [15:0]  background_color     , // 自行输出背景色
+    output      reg    [15:0]  front_color           // 自行输出字体颜色
 );      
 //****************** Parameter and Internal Signal *******************//        
 reg     [1:0]   cnt1;            //展示 行 计数器？！？3行故cnt1值只需0，1，2
 //也可能是延迟计数器，init_done为高电平后，延迟3拍，产生show_char_flag高脉冲
-reg     [4:0]   cnt_ascii_num;
+reg     [6:0]   cnt_ascii_num;
+
+// 符号 < >
+localparam SPACE = 'd0;
+localparam LEFT_MORE = 'd60-'d32;
+localparam RIGHT_MORE = 'd62-'d32;
+
+// 对应数据反色
+always@(posedge sys_clk or negedge sys_rst_n) begin
+    if(!sys_rst_n) begin
+        background_color <= 16'hAF7D;
+        front_color <= 16'h0000;
+    end else if(cnt_ascii_num > scale*20+8 && 
+                cnt_ascii_num < (scale+1)*20+8 && 
+                data>='d1 && data<='d7 &&
+                data==(cnt_ascii_num-12-20*scale)/2+1 &&
+                IsPressed) begin
+        background_color <= 16'hFA20;
+        front_color <= 16'hFFFF;
+    end else begin // 正常显示
+        background_color <= 16'hAF7D;
+        front_color <= 16'h0000;
+    end
+end
 
 //******************************* Main Code **************************//
 //en_size为1时调用字体大小为16x8，为0时调用字体大小为12x6；
@@ -69,41 +102,50 @@ always@(posedge sys_clk or negedge sys_rst_n)
         ascii_num <= 'd0;
     else if(init_done)
         case(cnt_ascii_num)         //根据当前展示数目（字符坐标）给出展示内容（ascii码）
-//ascii码     112,120,109, 32,104,117,115,116, 84, 83, 84, 54  =库内码+32
-            0 : ascii_num <= 'd112-'d32; 
-            1 : ascii_num <= 'd112-'d32;
-            2 : ascii_num <= 'd109-'d32;
-            3 : ascii_num <= 'd 32-'d32;
-            4 : ascii_num <= 'd104-'d32;
-            5 : ascii_num <= 'd117-'d32;
-            6 : ascii_num <= 'd115-'d32;
-            7 : ascii_num <= 'd116-'d32;
-            8 : ascii_num <= 'd 84-'d32;
-            9 : ascii_num <= 'd 83-'d32;
-            10: ascii_num <= 'd 84-'d32;
-            11: ascii_num <= 'd 54-'d32;
-            default: ascii_num <= 'd0;
+//ascii码     75,101,121, 66,111, 97,114,100  =库内码+32
+            0 : ascii_num <= 'd75-'d32; 
+            1 : ascii_num <= 'd101-'d32;
+            2 : ascii_num <= 'd121-'d32;
+            3 : ascii_num <= 'd66-'d32;
+            4 : ascii_num <= 'd111-'d32;
+            5 : ascii_num <= 'd97-'d32;
+            6 : ascii_num <= 'd114-'d32;
+            7 : ascii_num <= 'd100-'d32;
+            8 : ascii_num <= 'd76-'d32; // L
+            9 : ascii_num <= 'd79-'d32; // O
+            10 : ascii_num <= 'd87-'d32; // W
+            11 : ascii_num <= RIGHT_MORE; // >
+            27 : ascii_num <= (scale==4'd0) ? LEFT_MORE : SPACE;
+            28 : ascii_num <= 'd77-'d32; // M
+            29 : ascii_num <= 'd73-'d32; // I
+            30 : ascii_num <= 'd68-'d32; // D
+            31 : ascii_num <= RIGHT_MORE; // >
+            47 : ascii_num <= (scale==4'd1) ? LEFT_MORE : SPACE;
+            48 : ascii_num <= 'd72-'d32; // H
+            49 : ascii_num <= 'd73-'d32; // I
+            50 : ascii_num <= 'd71-'d32; // G
+            51 : ascii_num <= RIGHT_MORE; // >
+            67 : ascii_num <= (scale==4'd2) ? LEFT_MORE : SPACE;
+            default: begin
+                if(cnt_ascii_num<27 && cnt_ascii_num[0]==1) begin // 第二行LOW> 1 2 3 4 5 6 7 ?
+                    ascii_num <= (cnt_ascii_num-'d13)/2+'d49-'d32;    // 简单换算(cnt_ascii_num-13)/2=0->1的ascii码为49
+                end else if(cnt_ascii_num<47 && cnt_ascii_num[0]==1) begin // 第三行LOW> 1 2 3 4 5 6 7 ?
+                    ascii_num <= (cnt_ascii_num-'d33)/2+'d49-'d32; 
+                end else if(cnt_ascii_num<67 && cnt_ascii_num[0]==1) begin // 第四行LOW> 1 2 3 4 5 6 7 ?
+                    ascii_num <= (cnt_ascii_num-'d53)/2+'d49-'d32; 
+                end else ascii_num <= 'd0;
+            end
         endcase
 
 always@(posedge sys_clk or negedge sys_rst_n)
     if(!sys_rst_n)
         start_x <= 'd0;
-    else if(init_done)
-        case(cnt_ascii_num)        //根据当前展示数目（字符坐标）给出展示位置（屏幕坐标）,先定横向x
-            0 : start_x <= 'd32 ;  //(16x)8的字模，第一行128x128屏满行16字符；
-            1 : start_x <= 'd40 ;  //首行居中显示8个字符，起始128/4，后续++8(简单粗略)
-            2 : start_x <= 'd48 ;
-            3 : start_x <= 'd56 ;
-            4 : start_x <= 'd64 ;
-            5 : start_x <= 'd72 ;
-            6 : start_x <= 'd80 ;
-            7 : start_x <= 'd88 ;  //首行居中显示8个字符
-            8 : start_x <= 'd8;    //第二行空，第三行（换行是y计算）从几乎最左边显示，共4个字符
-            9 : start_x <= 'd16;
-            10: start_x <= 'd24;
-            11: start_x <= 'd32;
-            default: start_x <= 'd0;
-        endcase
+    else if(init_done) 
+        if(cnt_ascii_num<8) begin //根据当前展示数目（字符坐标）给出展示位置（屏幕坐标）,先定横向x
+            start_x <= 'd48+cnt_ascii_num*8; //(16x)8的字模，注意是横屏，160/2-8x8/2=48
+        end else begin
+            start_x <= ((cnt_ascii_num-'d8)%20)*8;
+        end
     else
         start_x <= 'd0;
 
@@ -111,21 +153,8 @@ always@(posedge sys_clk or negedge sys_rst_n)
     if(!sys_rst_n)
         start_y <= 'd0;
     else if(init_done)
-        case(cnt_ascii_num)        //根据当前展示数目（字符坐标）给出展示位置（屏幕坐标）,再定纵向y
-            0 : start_y <= 'd16;   //首行居中显示8个字符，靠屏幕上边
-            1 : start_y <= 'd16;
-            2 : start_y <= 'd16;
-            3 : start_y <= 'd16;
-            4 : start_y <= 'd16;
-            5 : start_y <= 'd16;
-            6 : start_y <= 'd16;
-            7 : start_y <= 'd16;
-            8 : start_y <= 'd48;   //第三行显示4个字符
-            9 : start_y <= 'd48;
-            10: start_y <= 'd48;
-            11: start_y <= 'd48;
-            default: start_y <= 'd0;
-        endcase
+        if(cnt_ascii_num<8) start_y <= 'd0;
+        else start_y <= ((cnt_ascii_num-'d8)/20+1)*16;
     else
         start_y <= 'd0;
 

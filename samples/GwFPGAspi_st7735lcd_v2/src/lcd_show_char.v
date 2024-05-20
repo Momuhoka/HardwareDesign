@@ -14,40 +14,13 @@ module lcd_show_char
     input       wire    [8:0]   start_x             ,   //起点的x坐标    
     input       wire    [8:0]   start_y             ,   //起点的y坐标    
 
+    input       wire    [15:0]  background_color    ,   //背景颜色
+    input       wire    [15:0]  front_color         ,   //字体颜色
+
     output      wire    [8:0]   show_char_data      ,   //传输的命令或者数据
     output      wire            en_write_show_char  ,   //使能写spi信号
     output      wire            show_char_done          //显示字符完成标志信号
 );
-
-//画笔颜色
-localparam  BLUE          = 16'h001F,
-            GREEN         = 16'h07E0,	  
-            RED           = 16'hF800,  
-            CYAN          = 16'h07FF,
-            MAGENTA       = 16'hF81F,
-            YELLOW        = 16'hFFE0,
-            LIGHTBLUE     = 16'h841F,
-            LIGHTGREEN    = 16'h87F0,
-            LIGHTRED      = 16'hFC10,
-            LIGHTCYAN     = 16'h87FF,
-            LIGHTMAGENTA  = 16'hFC1F, 
-            LIGHTYELLOW   = 16'hFFF0, 
-            DARKBLUE      = 16'h0010, 
-            DARKGREEN     = 16'h0400,
-            DARKRED       = 16'h8000,
-            DARKCYAN      = 16'h0410,
-            DARKMAGENTA   = 16'h8010,
-            DARKYELLOW    = 16'h8400,
-            WHITE         = 16'hFFFF, //白色
-            LIGHTGRAY     = 16'hD69A, //灰色
-            GRAY          = 16'h8410,
-            DARKGRAY      = 16'h4208,
-            BLACK         = 16'h0000, //黑色
-            BROWN         = 16'hA145,
-            ORANGE        = 16'hFD20;
-
-localparam  CLRSCR1  = DARKBLUE;  
-localparam  FRONTCOLOR  = YELLOW;  
 
 //****************** Parameter and Internal Signal *******************//
 //en_size == 0时选用字体大小为12x6   //注意12正好是6的两倍，后面用到此点
@@ -178,14 +151,14 @@ always@(posedge sys_clk or negedge sys_rst_n)
     else if(en_size && cnt_rom_prepare == 'd1)      //选用字体大小为16x8
         rom_addr <= 12'd1140 + ascii_num *(SIZE1_LENGTH_MAX + 1'b1) + cnt_length_num;
 //字库ROM占用2660bytes，两种字体各95个字符
-    ascii_pROM your_instance_name(
-        .dout(rom_q),      //output [7:0] dout
-        .clk(sys_clk),     //input clk 每个sys_clk取出一字模行8个点的数据，rom_addr不变就重复取
-        .oce(1'b0),        //input oce,bypass模式无效
-        .ce(1'b1),         //input ce,High enable
-        .reset(~sys_rst_n), //input reset，High enable，也可以留空
-        .ad(rom_addr)      //input [11:0] ad
-    );
+ascii_pROM ascii_prom(
+    .dout(rom_q),      //output [7:0] dout
+    .clk(sys_clk),     //input clk 每个sys_clk取出一字模行8个点的数据，rom_addr不变就重复取
+    .oce(1'b0),        //input oce,bypass模式无效
+    .ce(1'b1),         //input ce,High enable
+    .reset(~sys_rst_n), //input reset，High enable，也可以留空
+    .ad(rom_addr)      //input [11:0] ad
+);
 
 //rom一单元数据=8bit点，点数（颜色）的计数器
 always@(posedge sys_clk or negedge sys_rst_n)
@@ -279,14 +252,14 @@ always@(posedge sys_clk or negedge sys_rst_n)
         endcase
     else if(state == STATE2 && ((temp & 8'h01) == 'd0))
         if(cnt_wr_color_data[0] == 1'b0 )
-            data <= {1'b1,CLRSCR1[15:8]};
+            data <= {1'b1,background_color[15:8]};
         else
-            data <= {1'b1,CLRSCR1[7:0]};
+            data <= {1'b1,background_color[7:0]};
     else if(state == STATE2 && ((temp & 8'h01) == 'd1))
         if(cnt_wr_color_data[0] == 1'b0 )
-            data <= {1'b1,FRONTCOLOR[15:8]};
+            data <= {1'b1,front_color[15:8]};
         else
-            data <= {1'b1,FRONTCOLOR[7:0]};
+            data <= {1'b1,front_color[7:0]};
     else
         data <= data;   
 

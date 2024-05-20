@@ -6,12 +6,15 @@
     <FileList>
         <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\centerctrl.v" type="verilog"/>
         <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_prom\ascii_pROM.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
         <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_init.v" type="verilog"/>
         <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_show_char.v" type="verilog"/>
         <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_write.v" type="verilog"/>
         <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\show_string_number_ctrl.v" type="verilog"/>
         <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\spi_st7735lcd.v" type="verilog"/>
-        <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\led_show_test.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\decoder.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>

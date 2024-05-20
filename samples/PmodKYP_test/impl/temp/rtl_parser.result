@@ -1,33 +1,33 @@
 [
  {
-  "InstFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
+  "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
   "InstLine" : 6,
   "InstName" : "PmodKYPD_Top",
-  "ModuleFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
+  "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
   "ModuleLine" : 6,
   "ModuleName" : "PmodKYPD_Top",
   "SubInsts" : [
    {
-    "InstFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
     "InstLine" : 20,
     "InstName" : "rPLL_init",
-    "ModuleFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/gowin_rpll/rPLL_25_100.v",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/gowin_rpll/rPLL_27_100.v",
     "ModuleLine" : 9,
-    "ModuleName" : "rPLL_25_100"
+    "ModuleName" : "rPLL_27_100"
    },
    {
-    "InstFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
     "InstLine" : 26,
     "InstName" : "Decoder",
-    "ModuleFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Decoder.v",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Decoder.v",
     "ModuleLine" : 5,
     "ModuleName" : "PmodKYPD_Decoder"
    },
    {
-    "InstFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/PmodKYPD_Top.v",
     "InstLine" : 34,
     "InstName" : "LShow",
-    "ModuleFile" : "F:/workspace/HardwareDesign/samples/PmodKYP_test/src/LED_Show.v",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/PmodKYP_test/src/LED_Show.v",
     "ModuleLine" : 6,
     "ModuleName" : "LED_Show"
    }

@@ -5,6 +5,10 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/decoder.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/ascii_pROM.v",
    "Type" : "verilog"
   },
@@ -25,7 +29,15 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/led_show_test.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/show_string_number_ctrl.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_music.v",
    "Type" : "verilog"
   },
   {

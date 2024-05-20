@@ -4,7 +4,7 @@
 //GOWIN Version: V1.9.8.05
 //Part Number: GW1NR-LV9QN88PC6/I5
 //Device: GW1NR-9C
-//Created Time: Fri May 17 05:19:16 2024
+//Created Time: Mon May 20 03:23:54 2024
 
 module Gowin_rPLL (clkout, clkin);
 

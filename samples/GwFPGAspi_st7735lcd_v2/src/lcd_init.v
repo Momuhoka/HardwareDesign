@@ -9,8 +9,11 @@ module lcd_init
     parameter   TIME20MS    = 23'd1000_000,   //50MHz~-->20ms(50Hz) 适配7735 
                 TIME40MS    = 23'd2000_000,   //-->40ms=20ms+20ms（前两延迟状态是连续计数的）
                 TIME5MS     = 23'd250_000,    //-->5ms （第三次延迟）适配7735
-                HEIGHT      =  8'd162,        //由于下方已用表达式，故此处不能再用如128-1这种表达式
-                WIDTH       =  8'd131
+//                HEIGHT      =  8'd162,        //由于下方已用表达式，故此处不能再用如128-1这种表达式
+//                WIDTH       =  8'd131
+                // 修改为横屏
+                HEIGHT      =  8'd132,        //由于下方已用表达式，故此处不能再用如128-1这种表达式
+                WIDTH       =  8'd162
 )
 (
     input   wire            sys_clk ,
@@ -23,36 +26,33 @@ module lcd_init
     output  wire            en_write      ,
     output  wire            init_done
 );
-//****************** Parameter and Internal Signal *******************//
-//画笔颜色
-localparam  BLUE          = 16'h001F,
-            GREEN         = 16'h07E0,	  
-            RED           = 16'hF800,  
-            CYAN          = 16'h07FF,
-            MAGENTA       = 16'hF81F,
-            YELLOW        = 16'hFFE0,
-            LIGHTBLUE     = 16'h841F,
-            LIGHTGREEN    = 16'h87F0,
-            LIGHTRED      = 16'hFC10,
-            LIGHTCYAN     = 16'h87FF,
-            LIGHTMAGENTA  = 16'hFC1F, 
-            LIGHTYELLOW   = 16'hFFF0, 
-            DARKBLUE      = 16'h0010, 
-            DARKGREEN     = 16'h0400,
-            DARKRED       = 16'h8000,
-            DARKCYAN      = 16'h0410,
-            DARKMAGENTA   = 16'h8010,
-            DARKYELLOW    = 16'h8400,
-            WHITE         = 16'hFFFF, //白色
-            LIGHTGRAY     = 16'hD69A, //灰色
-            GRAY          = 16'h8410,
-            DARKGRAY      = 16'h4208,
-            BLACK         = 16'h0000, //黑色
-            BROWN         = 16'hA145,
-            ORANGE        = 16'hFD20;
 
-localparam  CLRSCR1  = DARKBLUE;  
-localparam  CLRSCR2  = YELLOW;  
+//配色方案一：春日柔和
+//柔和粉红色（Pale Pink）：0xFCF9
+//柔和绿色（Soft Green）：0x97F9
+//柔和蓝色（Baby Blue）：0xAD75
+//柔和黄色（Pale Yellow）：0xFFF3
+localparam SPRING_PINK = 16'hFCF9;
+localparam SPRING_GREEN = 16'h97F9;
+localparam SPRING_BLUE = 16'hAD75;
+localparam SPRING_YELLOW = 16'hFFF3;
+
+//配色方案二：海洋柔和
+//柔和海蓝色（Pale Aqua）：0xAF7D
+//柔和珊瑚色（Pale Coral）：0xF810
+//柔和紫色（Lavender）：0xE73F
+//柔和薄荷绿（Mint Green）：0xBFD9  
+localparam SEA_BLUE = 16'hAF7D;
+localparam SEA_CORAL = 16'hF810;
+localparam SEA_PURPLE = 16'hE73F;
+localparam SEA_GREEN = 16'hBFD9;
+
+// 黑白色
+localparam BLACK = 16'h0000;
+localparam WHITE = 16'hFFFF;
+
+// 选择的颜色
+localparam BACKGROUND_COLOR = SEA_BLUE;
 
 //----------------------------------------------------------------- 
 reg [6:0]   state;
@@ -71,9 +71,12 @@ reg         cnt_s4_num_done;
 localparam  CNT_S4_MAX =7'd87; //初始化代码实际才87个（0--86），多备1个--反正DATA_IDLE填充即可
 reg [17:0]  cnt_s5_num;
 reg         cnt_s5_num_done;  
-localparam  S5NUMMAX  = (WIDTH+1)*(HEIGHT+1)*2+17;  //清屏全部代码数目:W*H*2像点颜色+13设置窗口大小占的代码+备点色 
-localparam  S5NUMHALF = (WIDTH+1)*(HEIGHT+1)+17; 
+localparam  S5NUMMAX  = WIDTH*HEIGHT*2+17;  //清屏全部代码数目:W*H*2像点颜色+13设置窗口大小占的代码+备点色
 localparam  DATA_IDLE = 9'b1_0000_0000;
+// 文本区域
+localparam  TEXT_AREA = WIDTH*106*2+17;
+// 边界线
+localparam  BOUNDARY = TEXT_AREA+WIDTH*2*2;
 //----------------------------------------------------------------- 
 //状态跳转（状态下要做的操作在其他段落）            
 always@(posedge sys_clk or negedge sys_rst_n)
@@ -145,10 +148,12 @@ always@(posedge sys_clk or negedge sys_rst_n)
         cnt_s4_num_done <= 1'b1;
     else
         cnt_s4_num_done <= 1'b0;
-        
+
 //init_data[8:0]
 always@(posedge sys_clk or negedge sys_rst_n)
-    if(!sys_rst_n)               init_data <= DATA_IDLE;
+    if(!sys_rst_n) begin
+        init_data <= DATA_IDLE;
+    end
     else if(state == S2_WR_0X11) init_data <= 9'h0_11 ; 
          else if(state == S4_WR_INITC)
         //初始化命令/数据，直接借用厂家的
@@ -197,7 +202,8 @@ always@(posedge sys_clk or negedge sys_rst_n)
             7'd33:  init_data <= 9'h1_0E ; 
 
             7'd34:  init_data <= 9'h0_36 ; // MX, MY, RGB mode 
-            7'd35:  init_data <= 9'h1_C0 ; // 重要：显示方向控制，C0/00/A0/60,  C8/08/A8/68
+            // 修改为横屏
+            7'd35:  init_data <= 9'h1_60 ; // 重要：显示方向控制，C0/00/A0/60,  C8/08/A8/68
 
             7'd36:  init_data <= 9'h0_e0 ; //ST7735R Gamma Sequence
             7'd37:  init_data <= 9'h1_0f ; 
@@ -265,8 +271,9 @@ always@(posedge sys_clk or negedge sys_rst_n)
           case(cnt_s5_num)
             'd0 :  init_data <= 9'h0_29;   // Display on (repeat)
             //设置LCD显示方向
-            'd1 :  init_data <= 9'h0_36;
-            'd2 :  init_data <= 9'h1_C0;
+            'd1 :  init_data <= 9'h0_36; // MX, MY, RGB mode     
+            // 修改为横屏
+            'd2 :  init_data <= 9'h1_60; // 重要：显示方向控制，C0/00/A0/60,  C8/08/A8/68
             
             //LCD显示窗口设置
             'd3 :  init_data <= 9'h0_2a;
@@ -285,20 +292,21 @@ always@(posedge sys_clk or negedge sys_rst_n)
 
             //填充对应点的颜色                             
             'd13:  init_data <= 9'h0_2c;
-          default : 
+          default : begin
                 //当cnt_s5_num大于14且为偶数时，传输颜色数据的高8位
                    if(cnt_s5_num >= 'd14 && cnt_s5_num[0] == 0) begin
-                     if(cnt_s5_num >= S5NUMHALF ) init_data <= {1'b1,CLRSCR2[15:8]};
-                     else init_data <= {1'b1,CLRSCR1[15:8]};
+                        init_data <= {1'b1, BACKGROUND_COLOR[15:8]};
                    end
                 //当cnt_s5_num大于14且为奇数时，传输颜色数据的低8位
                    else begin
                      if(cnt_s5_num >= 'd14 && cnt_s5_num[0] == 1) begin
-                          if(cnt_s5_num >= S5NUMHALF ) init_data <= {1'b1,CLRSCR2[ 7:0]};
-                          else init_data <= {1'b1,CLRSCR1[ 7:0]};
+                         init_data <= {1'b1, BACKGROUND_COLOR[7:0]};
                      end
-                     else  init_data <= DATA_IDLE;
+                     else begin
+                        init_data <= DATA_IDLE;
+                     end
                    end
+                end
            endcase
        else  init_data <= DATA_IDLE;
 

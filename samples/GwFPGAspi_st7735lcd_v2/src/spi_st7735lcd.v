@@ -15,18 +15,23 @@
 
 module  spi_st7735lcd
 (
-    input           xtal_clk      ,
-    input           sys_rst_n     ,
+    input                   xtal_clk    ,
+    input                   sys_rst_n   ,
     
-    output          lcd_rst       ,
-    output          lcd_dc        ,
-    output          lcd_sclk      ,
-    output          lcd_mosi      ,
-    output          lcd_cs        ,
-    output          lcd_led       ,
-    output          testled
+    input   wire    [3:0]   Row         ,
+    output  wire    [3:0]   Col         ,
+
+    output                  lcd_rst     ,
+    output                  lcd_dc      ,
+    output                  lcd_sclk    ,
+    output                  lcd_mosi    ,
+    output                  lcd_cs      ,
+    output                  lcd_led     ,
+
+    output   wire   [5:0]   led         , // 前5个LED用来检测键盘是否正常，第6个LED判断屏幕初始化状态
+    output   wire           speaker       // 喇叭
 );
-wire    [8:0]   data;   
+wire    [8:0]   lcd_data;   
 wire            en_write;
 wire            wr_done; 
 
@@ -40,13 +45,15 @@ wire    [8:0]   start_y             ;
 
 wire    [8:0]   show_char_data      ;
 
-assign  testled = ~init_done;
+assign  led[5] = ~init_done;
 assign  lcd_led = 1'b1;  //屏背光常亮
 
 wire sys_clk;
 Gowin_rPLL uPLL( .clkout(sys_clk), .clkin (xtal_clk) ); //以PLL核产生高频提升运行速度--100M。
 //assign sys_clk = xtal_clk;     //不用PLL核，直接用板载12MHz主频。仿真时也改用此句，免得引入PLL仿真核。
 
+wire [15:0] background_color;   // 背景颜色
+wire [15:0] front_color;    // 文字颜色
 lcd_init    lcd_init_inst
 (
     .sys_clk      (sys_clk      ),
@@ -64,6 +71,10 @@ wire show_char_done;
 wire en_size;
 wire show_char_flag;
 
+wire [3:0] keyboard_data;    // 译码数据
+wire [3:0] scale;  // 电子琴音调0-1-2，位数为4是为了去除Music模块加减法位数不齐的报错
+wire IsPressed; // 按键按钮是否更新
+
 muxcontrol  muxcontrol_inst
 (
     .sys_clk            (sys_clk           ) ,   
@@ -75,7 +86,7 @@ muxcontrol  muxcontrol_inst
     .show_char_data     (show_char_data    ) ,
     .en_write_show_char (en_write_show_char) ,
 
-    .data               (data              ) ,
+    .data               (lcd_data          ) ,
     .en_write           (en_write          )
 );
 
@@ -85,7 +96,7 @@ lcd_write
   lcd_write_inst (
     .sys_clk      (sys_clk      ),
     .sys_rst_n    (sys_rst_n    ),
-    .data         (data         ),
+    .data         (lcd_data     ),
     .en_write     (en_write     ),
                                 
     .wr_done      (wr_done      ),
@@ -103,11 +114,18 @@ show_string_number_ctrl  show_string_number_inst
     .init_done      (init_done      ) ,
     .show_char_done (show_char_done ) ,
 
+    .IsPressed      (IsPressed)       ,
+    .data           (keyboard_data)   ,
+    .scale          (scale)           ,
+
     .en_size        (en_size        ) ,
     .show_char_flag (show_char_flag ) ,
     .ascii_num      (ascii_num      ) ,
     .start_x        (start_x        ) ,
-    .start_y        (start_y        ) 
+    .start_y        (start_y        ) ,
+
+    .background_color   (background_color   ),   //背景颜色
+    .front_color        (front_color        )   //字体颜色
 );  
 
 
@@ -122,9 +140,42 @@ lcd_show_char  lcd_show_char_inst
     .start_x            (start_x            ),   //起点的x坐标    
     .start_y            (start_y            ),   //起点的y坐标    
 
+    .background_color   (background_color   ),   //背景颜色
+    .front_color        (front_color        ),   //字体颜色
+
     .show_char_data     (show_char_data     ),   //传输的命令或者数据
     .en_write_show_char (en_write_show_char ),   //使能写spi信号
     .show_char_done     (show_char_done     )    //显示字符完成标志信号
+);
+
+
+// 矩阵键盘译码
+decoder decoder(
+    .clk(sys_clk),
+    .sys_rst_n(sys_rst_n),
+    .Row(Row),
+    .Col(Col),
+    .DecodeOut(keyboard_data),
+    .IsPressed(IsPressed)
+);
+
+// 音频播放
+speaker_music music(
+    .clk(sys_clk),  // 100Mhz
+    .sys_rst_n(sys_rst_n),
+    .IsPressed(IsPressed),
+    .data(keyboard_data),
+    .scale(scale), // 输出音调给显示屏显示状态
+    .speaker(speaker)
+);
+
+// LED输出
+led_show_test led_show(
+    .clk(sys_clk),
+    .sys_rst_n(sys_rst_n),
+    .IsPressed(IsPressed),
+    .data(keyboard_data),
+    .led(led[4:0])
 );
 
 endmodule
