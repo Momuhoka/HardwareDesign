@@ -52,7 +52,10 @@ localparam BLACK = 16'h0000;
 localparam WHITE = 16'hFFFF;
 
 // 选择的颜色
-localparam BACKGROUND_COLOR = SEA_BLUE;
+localparam TITLE_COLOR = SEA_BLUE;
+localparam TEXT_COLOR = SEA_BLUE;
+localparam MENU_COLOR = SEA_PURPLE;
+localparam BOUNDARY_COLOR = BLACK;
 
 //----------------------------------------------------------------- 
 reg [6:0]   state;
@@ -73,10 +76,14 @@ reg [17:0]  cnt_s5_num;
 reg         cnt_s5_num_done;  
 localparam  S5NUMMAX  = WIDTH*HEIGHT*2+17;  //清屏全部代码数目:W*H*2像点颜色+13设置窗口大小占的代码+备点色
 localparam  DATA_IDLE = 9'b1_0000_0000;
-// 文本区域
-localparam  TEXT_AREA = WIDTH*106*2+17;
+// 标题区域
+localparam  TITLE_AREA = WIDTH*18*2+17;
 // 边界线
-localparam  BOUNDARY = TEXT_AREA+WIDTH*2*2;
+localparam  BOUNDARY_0 = TITLE_AREA+WIDTH*2*2;
+// 文本区域
+localparam  TEXT_AREA = BOUNDARY_0+WIDTH*90*2;
+// 边界线
+localparam  BOUNDARY_1 = TEXT_AREA+WIDTH*2*2;
 //----------------------------------------------------------------- 
 //状态跳转（状态下要做的操作在其他段落）            
 always@(posedge sys_clk or negedge sys_rst_n)
@@ -295,12 +302,28 @@ always@(posedge sys_clk or negedge sys_rst_n)
           default : begin
                 //当cnt_s5_num大于14且为偶数时，传输颜色数据的高8位
                    if(cnt_s5_num >= 'd14 && cnt_s5_num[0] == 0) begin
-                        init_data <= {1'b1, BACKGROUND_COLOR[15:8]};
+                        if(cnt_s5_num < TITLE_AREA-1) begin
+                            init_data <= {1'b1, TITLE_COLOR[15:8]};
+                        end else if(cnt_s5_num < BOUNDARY_0-1) begin
+                            init_data <= {1'b1, BOUNDARY_COLOR[15:8]};
+                        end else if(cnt_s5_num < TEXT_AREA-1) begin
+                            init_data <= {1'b1, TEXT_COLOR[15:8]};
+                        end else if(cnt_s5_num < BOUNDARY_1-1) begin
+                            init_data <= {1'b1, BOUNDARY_COLOR[15:8]};
+                        end else init_data <= {1'b1, MENU_COLOR[15:8]};
                    end
                 //当cnt_s5_num大于14且为奇数时，传输颜色数据的低8位
                    else begin
                      if(cnt_s5_num >= 'd14 && cnt_s5_num[0] == 1) begin
-                         init_data <= {1'b1, BACKGROUND_COLOR[7:0]};
+                        if(cnt_s5_num < TITLE_AREA-1) begin
+                            init_data <= {1'b1, TITLE_COLOR[7:0]};
+                        end else if(cnt_s5_num < BOUNDARY_0-1) begin
+                            init_data <= {1'b1, BOUNDARY_COLOR[7:0]};
+                        end else if(cnt_s5_num < TEXT_AREA-1) begin
+                            init_data <= {1'b1, TEXT_COLOR[7:0]};
+                        end else if(cnt_s5_num < BOUNDARY_1-1) begin
+                            init_data <= {1'b1, BOUNDARY_COLOR[7:0]};
+                        end else init_data <= {1'b1, MENU_COLOR[7:0]};
                      end
                      else begin
                         init_data <= DATA_IDLE;

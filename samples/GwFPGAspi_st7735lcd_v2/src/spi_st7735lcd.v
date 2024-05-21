@@ -3,7 +3,7 @@
 // Author：Pxm
 // File name: spi_st7735lcd
 // First establish Date: 2022/12/15 
-// Descriptions: st7735R-SPI-LCD-demo顶层模块
+// Descriptions: 顶层模块
 // OutPin--CS    屏（从机）片选
 // OutPin--RESET ST7735复位          （也有标RST）
 // OutPin--DC    命令or数据指示      （也有标RS）
@@ -54,10 +54,16 @@ Gowin_rPLL uPLL( .clkout(sys_clk), .clkin (xtal_clk) ); //以PLL核产生高频�
 
 wire [15:0] background_color;   // 背景颜色
 wire [15:0] front_color;    // 文字颜色
+
+wire rst_n; // 特殊初始化信号，用于切换模式
+// 按键D切换模式
+assign rst_n = (keyboard_data==4'hD && IsPressed) ? ~sys_rst_n : sys_rst_n;
+
+// 切换模式时调用初始化
 lcd_init    lcd_init_inst
 (
     .sys_clk      (sys_clk      ),
-    .sys_rst_n    (sys_rst_n    ),
+    .sys_rst_n    (rst_n        ),  // 切换模式时需要初始屏幕
     .wr_done      (wr_done      ),
 
     .lcd_rst      (lcd_rst      ),
@@ -75,6 +81,7 @@ wire [3:0] keyboard_data;    // 译码数据
 wire [3:0] scale;  // 电子琴音调0-1-2，位数为4是为了去除Music模块加减法位数不齐的报错
 wire IsPressed; // 按键按钮是否更新
 
+// 复用器选择初始化数据还是字符数据
 muxcontrol  muxcontrol_inst
 (
     .sys_clk            (sys_clk           ) ,   
@@ -93,7 +100,7 @@ muxcontrol  muxcontrol_inst
 lcd_write
 #( .HALFDIV('d2) )     // 为适应系统时钟设置的分频比参数，>0，且sys_clk/2/HALFDIV不能超过spi硬件最大速率
                        // 实测sys_clk为100MHz，HALFDIV=1也能正常运行，一般就用2吧。
-  lcd_write_inst (
+    lcd_write_inst (
     .sys_clk      (sys_clk      ),
     .sys_rst_n    (sys_rst_n    ),
     .data         (lcd_data     ),
@@ -106,8 +113,8 @@ lcd_write
     .mosi         (lcd_mosi     )
 );
 
-
-show_string_number_ctrl  show_string_number_inst
+// 电子琴模式显示
+keyboard_mode_show  keyboard_mode_show
 (
     .sys_clk        (sys_clk        ) ,
     .sys_rst_n      (sys_rst_n      ) ,
@@ -128,7 +135,7 @@ show_string_number_ctrl  show_string_number_inst
     .front_color        (front_color        )   //字体颜色
 );  
 
-
+// 最终刷新屏幕的部分，一个字符显示
 lcd_show_char  lcd_show_char_inst
 (
     .sys_clk            (sys_clk            ),

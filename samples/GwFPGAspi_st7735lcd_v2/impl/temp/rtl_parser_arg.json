@@ -33,15 +33,15 @@
    "Type" : "verilog"
   },
   {
-   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/show_string_number_ctrl.v",
-   "Type" : "verilog"
-  },
-  {
    "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_music.v",
    "Type" : "verilog"
   },
   {
    "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_mode_show.v",
    "Type" : "verilog"
   }
  ],
