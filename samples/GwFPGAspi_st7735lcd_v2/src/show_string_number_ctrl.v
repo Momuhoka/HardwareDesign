@@ -51,9 +51,7 @@ always@(posedge sys_clk or negedge sys_rst_n) begin
     if(!sys_rst_n) begin
         background_color <= 16'hAF7D;
         front_color <= 16'h0000;
-    end else if(cnt_ascii_num > scale*20+8 && 
-                cnt_ascii_num < (scale+1)*20+8 && 
-                data>='d1 && data<='d7 &&
+    end else if(data>='d1 && data<='d7 &&
                 data==(cnt_ascii_num-12-20*scale)/2+1 &&
                 IsPressed) begin
         background_color <= 16'hFA20;
@@ -141,11 +139,11 @@ always@(posedge sys_clk or negedge sys_rst_n)
     if(!sys_rst_n)
         start_x <= 'd0;
     else if(init_done) 
-        if(cnt_ascii_num<8) begin //根据当前展示数目（字符坐标）给出展示位置（屏幕坐标）,先定横向x
-            start_x <= 'd48+cnt_ascii_num*8; //(16x)8的字模，注意是横屏，160/2-8x8/2=48
-        end else begin
-            start_x <= ((cnt_ascii_num-'d8)%20)*8;
-        end
+        if(cnt_ascii_num<68) begin  // 防止填充非必要区域
+            if(cnt_ascii_num<8) begin //根据当前展示数目（字符坐标）给出展示位置（屏幕坐标）,先定横向x
+                start_x <= 'd48+cnt_ascii_num*8; //(16x)8的字模，注意是横屏，160/2-8x8/2=48
+            end else start_x <= ((cnt_ascii_num-'d8)%20)*8;
+        end else start_x <= 'd0;
     else
         start_x <= 'd0;
 
@@ -153,8 +151,10 @@ always@(posedge sys_clk or negedge sys_rst_n)
     if(!sys_rst_n)
         start_y <= 'd0;
     else if(init_done)
-        if(cnt_ascii_num<8) start_y <= 'd0;
-        else start_y <= ((cnt_ascii_num-'d8)/20+1)*16;
+        if(cnt_ascii_num<68) begin  // 防止填充非必要区域
+            if(cnt_ascii_num<8) start_y <= 'd0;
+            else start_y <= 'd16+((cnt_ascii_num-'d8)/20+1)*16;
+        end else start_y <= 'd0;
     else
         start_y <= 'd0;
 
