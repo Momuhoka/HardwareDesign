@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------------------
-// File name: show_string_number_ctrl
-// Descriptions: 控制展示内容的高层模块
+// File name: music_mode_show
+// Descriptions: 音乐模式的显示模块
 //----------------------------------------------------------------------------------------
 //****************************************************************************************//
 /*
@@ -22,7 +22,7 @@ cnt_ascii_num  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
  ascii码       84  73  77  69  62  48  58  47  60 124  64  83  61  45  35  67 = 库内码+32 
 */
 
-module show_string_number_ctrl
+module music_mode_show
 (
     input       wire            sys_clk             ,
     input       wire            sys_rst_n           ,
@@ -52,35 +52,53 @@ localparam CHAR_NUM = 6'd45;
 
 reg IsPause; // 歌曲暂停
 reg IsRelay; // 单曲循环
+reg pre_IsPressed; // 上一按钮状态，用于抽取上升沿
 // 播放模式切换
-always@(posedge IsPressed or negedge sys_rst_n) begin
+always@(posedge sys_clk or negedge sys_rst_n) begin
     if(!sys_rst_n) begin
+        pre_IsPressed <= 1'b0;  // 上一按钮状态
         IsPause <= 1'b0;    // 是否暂停
         IsRelay <= 1'b0;    // 是否循环
     end else begin
-        case(keyboard_data)
-            4'h5 : IsPause <= ~IsPause; // 按键5切换暂停状态
-            4'h1 : IsRelay <= ~IsRelay; // 按键1切换循环状态
-            default : begin
-                IsPause <= IsPause;
-                IsRelay <= IsRelay;
-            end
-        endcase
+        if(!pre_IsPressed && IsPressed) begin
+            case(keyboard_data)
+                4'h5 : IsPause <= ~IsPause; // 按键5切换暂停状态
+                4'h1 : IsRelay <= ~IsRelay; // 按键1切换循环状态
+            endcase
+        end
+        pre_IsPressed <= IsPressed;
     end
 end
 
-// 对应数据反色
+// 对应数据颜色
 always@(posedge sys_clk or negedge sys_rst_n) begin
     if(!sys_rst_n) begin
+        background_color <= 16'hE73F;
+        front_color <= 16'h0000;
+    end else if(cnt_ascii_num<'d5) begin
         background_color <= 16'hAF7D;
         front_color <= 16'h0000;
-    end else if(keyboard_data>='d1 && keyboard_data<='d7 &&
-                keyboard_data==(cnt_ascii_num-12-20*scale)/2+1 &&
-                IsPressed) begin
-        background_color <= 16'hFA20;
+    end else if(cnt_ascii_num<'d9 && cnt_ascii_num>'d4) begin
+        background_color <= 16'h815B;
         front_color <= 16'hFFFF;
+    end else if(cnt_ascii_num=='d25 || cnt_ascii_num=='d26) begin
+        if(IsPause) begin
+            background_color <= 16'hFA20;
+            front_color <= 16'hFFFF;
+        end else begin
+            background_color <= 16'h2E65;
+            front_color <= 16'hFFFF;
+        end
+    end else if(cnt_ascii_num=='d28 || cnt_ascii_num=='d29) begin
+        if(IsRelay) begin
+            background_color <= 16'hF892;
+            front_color <= 16'hFFFF;
+        end else begin
+            background_color <= 16'hFB08;
+            front_color <= 16'hFFFF;
+        end
     end else begin // 正常显示
-        background_color <= 16'hAF7D;
+        background_color <= 16'hE73F;
         front_color <= 16'h0000;
     end
 end
@@ -115,7 +133,7 @@ always@(posedge sys_clk or negedge sys_rst_n)
         cnt_ascii_num <= 'd0;
     else if(init_done && show_char_done)         //展示数目的计数器：初始化完成和上一个char展示完成后，数目+1
         // 添加了达到字符上限循环判断，存在CHAR_NUM而不是CHAR_NUM-1是多一个输出结束时隙
-        cnt_ascii_num <= (cnt_ascii_num==CHAR_NUM) ? 1'd0 : cnt_ascii_num + 1'b1;   //等于是展示字符的坐标（单位：个字符
+        cnt_ascii_num <= (cnt_ascii_num==CHAR_NUM-1) ? 1'd0 : cnt_ascii_num + 1'b1;   //等于是展示字符的坐标（单位：个字符
     else
         cnt_ascii_num <= cnt_ascii_num;
 
@@ -132,7 +150,7 @@ always@(posedge sys_clk or negedge sys_rst_n)
 //          |> @S ====----------
 //          || #C =====---------
             0 : ascii_num <= 'd77-'d32; // M
-            1 : ascii_num <= 'd117'd32; // U
+            1 : ascii_num <= 'd117-'d32; // U
             2 : ascii_num <= 'd115-'d32;  // S
             3 : ascii_num <= 'd105-'d32; // I
             4 : ascii_num <= 'd99-'d32; // C
@@ -167,7 +185,7 @@ always@(posedge sys_clk or negedge sys_rst_n)
     else if(init_done) 
         if(cnt_ascii_num<CHAR_NUM) begin  // 防止填充非必要区域
             if(cnt_ascii_num<5) begin //根据当前展示数目（字符坐标）给出展示位置（屏幕坐标）,先定横向x
-                start_x <= 'd60+cnt_ascii_num*8; //(16x)8的字模，注意是横屏，160/2-8x8/2=48
+                start_x <= 9'd60+(cnt_ascii_num<<3); //(16x)8的字模，注意是横屏，160/2-8x8/2=48
             end else start_x <= (((cnt_ascii_num-6'd5)%20)<<3);
         end else start_x <= 'd0;
     else
@@ -179,7 +197,7 @@ always@(posedge sys_clk or negedge sys_rst_n)
     else if(init_done)
         if(cnt_ascii_num<CHAR_NUM) begin  // 防止填充非必要区域
             if(cnt_ascii_num<5) start_y <= 'd0;
-            else start_y <= 'd96+(((cnt_ascii_num-6'd8)/6'd20+1)<<4);
+            else start_y <= 9'd80+(((cnt_ascii_num-6'd5)/6'd20+1'd1)<<4);                                                                          
         end else start_y <= 'd0;
     else
         start_y <= 'd0;

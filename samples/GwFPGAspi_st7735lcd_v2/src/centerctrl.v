@@ -1,9 +1,9 @@
 //----------------------------------------------------------------------------------------
-// File name: muxcontrol
+// File name: centerctrl
 // Descriptions: （居中）控制切换选择LCD 初始化 或 展示Ascii字符及数字 信号输出。
 //----------------------------------------------------------------------------------------
 //****************************************************************************************//
-module  muxcontrol
+module  centerctrl
 (
     input   wire             sys_clk             ,   
     input   wire             sys_rst_n           ,
@@ -14,19 +14,19 @@ module  muxcontrol
     input   wire     [8:0]   show_char_data      ,
     input   wire             en_write_show_char  ,
     
-    output  reg      [8:0]   data                ,
+    output  reg      [8:0]   spi_data            ,
     output  reg              en_write      
 );
 
 always@(posedge sys_clk or negedge sys_rst_n)
     if(!sys_rst_n)
-        data <= 'd0;
+        spi_data <= 'd0;
     else if(init_done == 1'b0)  //init_done=0未初试化完成
-        data <= init_data;      //连接的数据是初始化数据
+        spi_data <= init_data;      //连接的数据是初始化数据
     else if(init_done == 1'b1)
-        data <= show_char_data; //否则展示数据生效
+        spi_data <= show_char_data; //否则展示数据生效
     else
-        data <= data;
+        spi_data <= spi_data;
 
 always@(posedge sys_clk or negedge sys_rst_n)
     if(!sys_rst_n)

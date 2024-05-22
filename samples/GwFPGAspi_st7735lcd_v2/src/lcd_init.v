@@ -81,7 +81,7 @@ localparam  TITLE_AREA = WIDTH*18*2+17;
 // 边界线
 localparam  BOUNDARY_0 = TITLE_AREA+WIDTH*2*2;
 // 文本区域
-localparam  TEXT_AREA = BOUNDARY_0+WIDTH*90*2;
+localparam  TEXT_AREA = BOUNDARY_0+WIDTH*74*2;
 // 边界线
 localparam  BOUNDARY_1 = TEXT_AREA+WIDTH*2*2;
 //----------------------------------------------------------------- 

@@ -7,7 +7,7 @@ module speaker_music(
     input sys_rst_n,
 
     input IsPressed,    // 按钮更新
-    input [3:0]data,
+    input [3:0]keyboard_data,
 
     output reg [3:0] scale, // 输出当前音调
     output reg speaker
@@ -34,7 +34,7 @@ initial begin
 end
 
 // 当前音
-wire [18:0] music;
+reg [18:0] music;
 // 播放音调计数器
 reg [18:0] cnt;
 
@@ -44,12 +44,20 @@ always @(posedge clk or negedge sys_rst_n) begin
         // 默认中音
         scale <= 4'd1;   
     end
-    else if(data>=4'hA&&data<=4'hC) begin
-            scale <= data-4'hA;
+    else if(keyboard_data>=4'hA&&keyboard_data<=4'hC) begin
+            scale <= keyboard_data-4'hA;
     end
 end
-// 默认无音频
-assign music = sys_rst_n&&IsPressed&&(data>4'h0&&data<4'h8) ? MUSIC[scale][data] : 19'd0;
+
+always @(posedge clk or negedge sys_rst_n) begin
+    if(!sys_rst_n) begin
+        // 默认无音频
+        music <= 19'd0;   
+    end
+    else if(IsPressed && keyboard_data>4'h0&&keyboard_data<4'h8) begin
+            music <= MUSIC[scale][keyboard_data];
+    end else music <= 19'd0;
+end
 
 // 更新播放器状态
 always @(posedge clk or negedge sys_rst_n) begin

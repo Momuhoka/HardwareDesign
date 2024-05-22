@@ -10,7 +10,7 @@ module  lcd_write
 (
     input   wire            sys_clk             ,  //系统工作时钟
     input   wire            sys_rst_n           ,
-    input   wire    [8:0]   data                ,
+    input   wire    [8:0]   spi_data            ,
     input   wire            en_write            ,  //脉冲式信号,几个sys_clk宽均可
 
     output  wire            wr_done             ,
@@ -86,8 +86,8 @@ always@(posedge sys_clk or negedge sys_rst_n)  begin //完成MOsi数据输出操
   end
   else begin
     if (en_write&&!busy) begin          // (en_write&&!busy)会 busy <= 1'b1; 
-          in_buffer <= data[7:0];        // 故 缓冲数据与 busy = 1'b1 变化沿 同步
-          dc <= data[8];                 // 数据首位是DC（命令/数据指示）
+          in_buffer <= spi_data[7:0];        // 故 缓冲数据与 busy = 1'b1 变化沿 同步
+          dc <= spi_data[8];                 // 数据首位是DC（命令/数据指示）
         end 
     else   begin 
        if ((wclkcnt == HALFDIV-1))   begin    //在count=N中点送数据上端口
