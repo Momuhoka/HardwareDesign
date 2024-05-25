@@ -1,55 +1,55 @@
 {
  "Files" : [
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/centerctrl.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/centerctrl.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/change_mode.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/change_mode.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/decoder.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/decoder.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/ascii_pROM.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/ascii_pROM.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_mode_show.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_mode_show.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_init.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_init.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_write.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_write.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/led_show_test.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/led_show_test.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/music_mode_show.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/music_mode_show.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_music.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_music.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/spi_st7735lcd.v",
    "Type" : "verilog"
   }
  ],
@@ -57,7 +57,7 @@
 
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/impl/temp/rtl_parser.result",
+ "ResultFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/impl/temp/rtl_parser.result",
  "Top" : "",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"

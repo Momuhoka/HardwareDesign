@@ -67,6 +67,7 @@ always @(posedge clk or negedge sys_rst_n) begin
         speaker <= 1'b0;
     end
     else if(music==19'd0) begin
+        cnt <= 19'd0;
         speaker <= 1'b0;
     end
     else if(cnt<(music>>1)-1) begin // 右移一位除以2

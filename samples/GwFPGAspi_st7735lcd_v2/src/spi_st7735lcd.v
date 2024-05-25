@@ -39,9 +39,9 @@ wire    [8:0]   init_data;
 wire            en_write_init;
 wire            init_done;
 
-wire    [6:0]   ascii_num;
-wire    [6:0]   keyboard_ascii_num;
-wire    [6:0]   music_ascii_num;
+wire    [7:0]   ascii_num;
+wire    [7:0]   keyboard_ascii_num;
+wire    [7:0]   music_ascii_num;
 wire    [8:0]   start_x;
 wire    [8:0]   keyboard_start_x;
 wire    [8:0]   music_start_x;

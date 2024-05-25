@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW1NR-9C" package="QFN88P" speed="6" partNumber="GW1NR-LV9QN88PC6/I5"/>
+    <FileList>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\centerctrl.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\change_mode.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\decoder.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_prom\ascii_pROM.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\keyboard_mode_show.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_init.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_show_char.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_write.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\led_show_test.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\music_mode_show.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v" type="verilog"/>
+        <File path="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\spi_st7735lcd.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="dsp_balance" value="0"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="C:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\impl\gwsynthesis\SPIlcd_prj.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="1"/>
+        <Option type="verilog_language" value="verilog-2001"/>
+        <Option type="vhdl_language" value="vhdl-1993"/>
+    </OptionList>
+</Project>

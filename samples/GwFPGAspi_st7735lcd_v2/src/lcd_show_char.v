@@ -10,7 +10,7 @@ module lcd_show_char
     input       wire            wr_done             ,
     input       wire            en_size             ,   //为0时字体大小的12x6，为1时字体大小的16x8
     input       wire            show_char_flag      ,   //显示字符标志信号
-    input       wire    [6:0]   ascii_num           ,   //需要显示字符的ascii码
+    input       wire    [7:0]   ascii_num           ,   //需要显示字符的ascii码
     input       wire    [8:0]   start_x             ,   //起点的x坐标    
     input       wire    [8:0]   start_y             ,   //起点的y坐标    
 

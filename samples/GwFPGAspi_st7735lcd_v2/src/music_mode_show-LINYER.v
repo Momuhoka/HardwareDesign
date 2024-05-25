@@ -35,7 +35,7 @@ module music_mode_show
     
     output      wire            en_size             ,
     output      reg             show_char_flag      ,
-    output      reg     [7:0]   ascii_num           ,
+    output      reg     [6:0]   ascii_num           ,
     output      reg     [8:0]   start_x             ,
     output      reg     [8:0]   start_y             ,
 
@@ -59,7 +59,7 @@ always@(posedge sys_clk or negedge sys_rst_n) begin
         pre_IsPressed <= 1'b0;  // 上一按钮状态
         IsPause <= 1'b0;    // 是否暂停
         IsRelay <= 1'b0;    // 是否循环
-    end else if(init_done) begin // 初始化完毕才开始运行
+    end else begin
         if(!pre_IsPressed && IsPressed) begin
             case(keyboard_data)
                 4'h5 : IsPause <= ~IsPause; // 按键5切换暂停状态
@@ -75,34 +75,29 @@ always@(posedge sys_clk or negedge sys_rst_n) begin
     if(!sys_rst_n) begin
         background_color <= 16'hE73F;
         front_color <= 16'h0000;
-    end else if(init_done) begin // 初始化完毕才开始运行
-        if(cnt_ascii_num<'d5) begin
-            background_color <= 16'hAF7D;
-            front_color <= 16'h0000;
-        end else if(cnt_ascii_num<'d9 && cnt_ascii_num>'d4) begin
-            background_color <= 16'h815B;
+    end else if(cnt_ascii_num<'d5) begin
+        background_color <= 16'hAF7D;
+        front_color <= 16'h0000;
+    end else if(cnt_ascii_num<'d9 && cnt_ascii_num>'d4) begin
+        background_color <= 16'h815B;
+        front_color <= 16'hFFFF;
+    end else if(cnt_ascii_num=='d25 || cnt_ascii_num=='d26) begin
+        if(IsPause) begin
+            background_color <= 16'hFA20;
             front_color <= 16'hFFFF;
-        end else if(cnt_ascii_num=='d25 || cnt_ascii_num=='d26) begin
-            if(IsPause) begin
-                background_color <= 16'hFA20;
-                front_color <= 16'hFFFF;
-            end else begin
-                background_color <= 16'h2E65;
-                front_color <= 16'hFFFF;
-            end
-        end else if(cnt_ascii_num=='d28 || cnt_ascii_num=='d29) begin
-            if(IsRelay) begin
-                background_color <= 16'hF892;
-                front_color <= 16'hFFFF;
-            end else begin
-                background_color <= 16'hFB08;
-                front_color <= 16'hFFFF;
-            end
-        end else begin // 正常显示
-            background_color <= 16'hE73F;
-            front_color <= 16'h0000;
+        end else begin
+            background_color <= 16'h2E65;
+            front_color <= 16'hFFFF;
         end
-    end else begin
+    end else if(cnt_ascii_num=='d28 || cnt_ascii_num=='d29) begin
+        if(IsRelay) begin
+            background_color <= 16'hF892;
+            front_color <= 16'hFFFF;
+        end else begin
+            background_color <= 16'hFB08;
+            front_color <= 16'hFFFF;
+        end
+    end else begin // 正常显示
         background_color <= 16'hE73F;
         front_color <= 16'h0000;
     end

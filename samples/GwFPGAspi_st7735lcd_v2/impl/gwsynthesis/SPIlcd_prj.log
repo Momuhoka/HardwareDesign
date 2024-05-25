@@ -1,6 +1,7 @@
 GowinSynthesis start
 Running parser ...
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\centerctrl.v'
+Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\change_mode.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\decoder.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_prom\ascii_pROM.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_rpll\gowin_rpll.v'
@@ -9,17 +10,16 @@ Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735l
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_show_char.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_write.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\led_show_test.v'
+Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\music_mode_show.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\spi_st7735lcd.v'
-Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\music_mode_show.v'
-Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\change_mode.v'
 Compiling module 'spi_st7735lcd'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\spi_st7735lcd.v":16)
 Compiling module 'Gowin_rPLL'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_rpll\gowin_rpll.v":9)
 Compiling module 'change_mode'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\change_mode.v":5)
 Compiling module 'lcd_init'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_init.v":7)
 Compiling module 'centerctrl'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\centerctrl.v":6)
 Compiling module 'lcd_write'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_write.v":7)
-Compiling module 'keyboard_mode_show'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\keyboard_mode_show.v":20)
+Compiling module 'keyboard_mode_show'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\keyboard_mode_show.v":26)
 Compiling module 'music_mode_show'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\music_mode_show.v":25)
 Compiling module 'lcd_show_char'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_show_char.v":6)
 Compiling module 'ascii_pROM'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_prom\ascii_pROM.v":9)
