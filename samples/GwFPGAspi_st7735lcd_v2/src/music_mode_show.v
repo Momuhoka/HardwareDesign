@@ -31,7 +31,7 @@ module music_mode_show
     
     input       wire            IsPressed           , // 接收按钮状态信息
     input       wire    [3:0]   keyboard_data       , // 接收矩阵键盘数据
-    input       wire    [3:0]   scale               , // 接收当前音调数据
+    input       wire    [1:0]   scale               , // 接收当前音调数据
     
     output      wire            en_size             ,
     output      reg             show_char_flag      ,

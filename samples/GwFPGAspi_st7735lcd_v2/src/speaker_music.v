@@ -7,9 +7,9 @@ module speaker_music(
     input sys_rst_n,
 
     input IsPressed,    // 按钮更新
-    input [3:0]keyboard_data,
+    input [3:0] keyboard_data,
 
-    output reg [3:0] scale, // 输出当前音调
+    output reg [1:0] scale, // 输出当前音调
     output reg speaker
 );
 
@@ -44,8 +44,13 @@ always @(posedge clk or negedge sys_rst_n) begin
         // 默认中音
         scale <= 4'd1;   
     end
-    else if(keyboard_data>=4'hA&&keyboard_data<=4'hC) begin
-            scale <= keyboard_data-4'hA;
+    else begin
+        case(keyboard_data)
+            4'hA : scale <= 2'd0;
+            4'hB : scale <= 2'd1;
+            4'hC : scale <= 2'd2;
+           default : scale <= scale;
+        endcase
     end
 end
 
@@ -67,7 +72,6 @@ always @(posedge clk or negedge sys_rst_n) begin
         speaker <= 1'b0;
     end
     else if(music==19'd0) begin
-        cnt <= 19'd0;
         speaker <= 1'b0;
     end
     else if(cnt<(music>>1)-1) begin // 右移一位除以2

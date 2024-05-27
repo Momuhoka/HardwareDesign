@@ -32,7 +32,7 @@ module keyboard_mode_show
     
     input       wire            IsPressed           , // 接收按钮状态信息
     input       wire    [3:0]   keyboard_data       , // 接收矩阵键盘数据
-    input       wire    [3:0]   scale               , // 接收当前音调数据
+    input       wire    [1:0]   scale               , // 接收当前音调数据
     
     output      wire            en_size             ,
     output      reg             show_char_flag      ,
@@ -57,8 +57,8 @@ localparam LEFT_MORE = 'd60-'d32;
 localparam RIGHT_MORE = 'd62-'d32;
 
 // 青花瓷
-localparam SAMPLE_QHC = 'o11116112612122321201123255355365056161161161202332122223333033532332333650112321161612056161161161200; // 音符0-7使用8进制，翻转存储
-localparam QHC_LEN = 'd101; 
+localparam SAMPLE_QHC = 'o35321235321212122335356532112532132355235321323551212233535653211253213235523532132355; // 音符0-7使用8进制，翻转存储
+localparam QHC_LEN = 'd86; 
 localparam QHC_NAME = 'h20_20_51_48_43_20_20_20; // 八个字符ascii码，转为16进制
 // C418
 localparam SAMPLE_C418 = 'o1642624616426122146622146611353645123213111353645123213112214662214665366332765617113536451232131113536451232131;

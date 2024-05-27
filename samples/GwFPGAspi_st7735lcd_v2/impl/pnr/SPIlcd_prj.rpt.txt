@@ -11,26 +11,26 @@
   <PnR Version>: V1.9.8.05
   <Part Number>: GW1NR-LV9QN88PC6/I5
   <Device>: GW1NR-9C
-  <Created Time>:Sun May 26 00:10:12 2024
+  <Created Time>:Sun May 26 20:31:42 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.109s, Elapsed time = 0h 0m 0.109s
-    Placement Phase 1: CPU time = 0h 0m 0.085s, Elapsed time = 0h 0m 0.084s
-    Placement Phase 2: CPU time = 0h 0m 0.167s, Elapsed time = 0h 0m 0.167s
-    Placement Phase 3: CPU time = 0h 0m 4s, Elapsed time = 0h 0m 4s
+    Placement Phase 0: CPU time = 0h 0m 0.111s, Elapsed time = 0h 0m 0.111s
+    Placement Phase 1: CPU time = 0h 0m 0.074s, Elapsed time = 0h 0m 0.074s
+    Placement Phase 2: CPU time = 0h 0m 0.177s, Elapsed time = 0h 0m 0.177s
+    Placement Phase 3: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s
     Total Placement: CPU time = 0h 0m 4s, Elapsed time = 0h 0m 4s
  Running routing:
-    Routing Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0.001s
-    Routing Phase 1: CPU time = 0h 0m 0.363s, Elapsed time = 0h 0m 0.363s
-    Routing Phase 2: CPU time = 0h 0m 0.808s, Elapsed time = 0h 0m 0.808s
+    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0.001s
+    Routing Phase 1: CPU time = 0h 0m 0.32s, Elapsed time = 0h 0m 0.321s
+    Routing Phase 2: CPU time = 0h 0m 0.782s, Elapsed time = 0h 0m 0.781s
     Total Routing: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
  Generate output files:
     CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s
 
- Total Time and Memory Usage: CPU time = 0h 0m 7s, Elapsed time = 0h 0m 7s, Peak memory usage = 285MB
+ Total Time and Memory Usage: CPU time = 0h 0m 7s, Elapsed time = 0h 0m 7s, Peak memory usage = 339MB
 
 
 3. Resource Usage Summary
@@ -38,12 +38,12 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 1541/8640  17%
-    --LUT,ALU,ROM16           | 1541(1476 LUT, 65 ALU, 0 ROM16)
+  Logic                       | 1539/8640  17%
+    --LUT,ALU,ROM16           | 1539(1478 LUT, 61 ALU, 0 ROM16)
     --SSRAM(RAM16)            | 0
-  Register                    | 696/6693  10%
+  Register                    | 694/6693  10%
     --Logic Register as Latch | 0/6480  0%
-    --Logic Register as FF    | 683/6480  10%
+    --Logic Register as FF    | 681/6480  10%
     --I/O Register as Latch   | 0/213  0%
     --I/O Register as FF      | 13/213  6%
   CLS                         | 882/4320  20%

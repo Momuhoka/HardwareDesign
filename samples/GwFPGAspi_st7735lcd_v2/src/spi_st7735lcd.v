@@ -59,7 +59,7 @@ Gowin_rPLL uPLL( .clkout(sys_clk), .clkin (xtal_clk) ); //以PLL核产生高频�
 //assign sys_clk = xtal_clk;     //不用PLL核，直接用板载12MHz主频。仿真时也改用此句，免得引入PLL仿真核。
 
 wire [3:0] keyboard_data;    // 译码数据
-wire [3:0] scale;  // 电子琴音调0-1-2，位数为4是为了去除Music模块加减法位数不齐的警告
+wire [1:0] scale;  // 电子琴音调0-1-2，位数为4是为了去除Music模块加减法位数不齐的警告
 wire IsPressed; // 按键按钮是否更新
 wire [15:0] background_color;   // 背景颜色
 wire [15:0] keyboard_background_color;
@@ -88,7 +88,7 @@ change_mode change_mode(
 lcd_init    lcd_init_inst
 (
     .sys_clk      (sys_clk      ),
-    .sys_rst_n    (~mode_rst     ),  // 切换模式时需要清除屏幕
+    .sys_rst_n    (~mode_rst    ),  // 切换模式时需要清除屏幕
     .wr_done      (wr_done      ),
 
     .lcd_rst      (lcd_rst      ),
