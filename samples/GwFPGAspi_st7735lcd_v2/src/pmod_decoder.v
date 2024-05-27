@@ -2,7 +2,7 @@
 // 										参考官方示例Decoder代码
 // ==============================================================================================
 
-module decoder(
+module pmod_decoder(
     input sys_clk,  // 100MHz
     input sys_rst_n,
     input wire [3:0] Row,    // 行
@@ -26,10 +26,16 @@ localparam DELTA = 4'd8;
 always @(posedge sys_clk or negedge sys_rst_n) begin
     if(!sys_rst_n) begin
         count <= 19'd0;
-        nopressed <= 3'd0;
+        nopressed <= 3'd4;
     end
     else begin
-        if(count==COUNT_COL0-1) begin
+        if(count<COUNT_COL0-1) begin
+            // 差不多有1ms时间检测是否按下
+            if(nopressed!=3'd4) IsPressed <= 1'b1;
+            else IsPressed <= 1'b0;
+            count <= count + 1'b1;
+        end 
+        else if(count==COUNT_COL0-1) begin
             nopressed <= 3'd0;
             Col <= 4'b0111;
             count <= count + 1'b1;
@@ -89,29 +95,6 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
         else begin
             count <= count + 1'b1;
         end
-    end
-end
-
-// 延迟计数器
-reg [24:0] delay;
-// 延迟时间0.05s
-localparam DELAYCOUNT = 24'd5_000_000;
-// 按键延迟部分
-always @(posedge sys_clk or negedge sys_rst_n) begin
-    if(!sys_rst_n) begin
-        IsPressed <= 1'b0;
-        delay <= 24'd0;
-    end 
-    else if(count==19'd0 && nopressed!=3'd4) begin
-            IsPressed <= 1'b1;
-            delay <= 24'd0;
-    end
-    else if(delay<DELAYCOUNT-1) begin
-        delay <= delay + 1'b1;
-    end
-    else begin
-        IsPressed <= 1'b0;
-        delay <= 24'd0;
     end
 end
 

@@ -2,32 +2,30 @@ GowinSynthesis start
 Running parser ...
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\centerctrl.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\change_mode.v'
-Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\decoder.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_prom\ascii_pROM.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_rpll\gowin_rpll.v'
-Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\keyboard_mode_show.v'
+Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\keyboard_music_top.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_init.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_show_char.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_write.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\led_show_test.v'
-Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\music_mode_show.v'
+Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\menu_show.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v'
-Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\spi_st7735lcd.v'
-Compiling module 'spi_st7735lcd'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\spi_st7735lcd.v":16)
+Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\pmod_decoder.v'
+Compiling module 'keyboard_music_top'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\keyboard_music_top.v":16)
 Compiling module 'Gowin_rPLL'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_rpll\gowin_rpll.v":9)
 Compiling module 'change_mode'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\change_mode.v":5)
 Compiling module 'lcd_init'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_init.v":7)
 Compiling module 'centerctrl'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\centerctrl.v":6)
 Compiling module 'lcd_write'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_write.v":7)
-Compiling module 'keyboard_mode_show'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\keyboard_mode_show.v":26)
-Compiling module 'music_mode_show'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\music_mode_show.v":25)
+Compiling module 'menu_show'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\menu_show.v":43)
 Compiling module 'lcd_show_char'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_show_char.v":6)
 Compiling module 'ascii_pROM'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_prom\ascii_pROM.v":9)
-Compiling module 'decoder'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\decoder.v":5)
+Compiling module 'pmod_decoder'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\pmod_decoder.v":5)
 Compiling module 'speaker_music'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v":5)
-Extracting RAM for identifier 'MUSIC'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v":25)
+Extracting RAM for identifier 'NOTE'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v":29)
 Compiling module 'led_show_test'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\led_show_test.v":6)
-NOTE  (EX0101) : Current top module is "spi_st7735lcd"
+NOTE  (EX0101) : Current top module is "keyboard_music_top"
 [5%] Running netlist conversion ...
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed

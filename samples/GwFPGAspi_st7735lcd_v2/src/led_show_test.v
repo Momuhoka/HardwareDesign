@@ -4,7 +4,7 @@
 // ==============================================================================================
 
 module led_show_test(
-    input clk,
+    input sys_clk,
     input sys_rst_n,    // 置位按钮
 
     input IsPressed,
@@ -13,7 +13,7 @@ module led_show_test(
     output reg [4:0] led
 );
 
-always @(posedge clk or negedge sys_rst_n) begin
+always @(posedge sys_clk or negedge sys_rst_n) begin
     if(!sys_rst_n)
         led <= 5'b00000;   // led灯共阳极
     else begin
