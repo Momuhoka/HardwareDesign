@@ -185,7 +185,6 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
     if(!sys_rst_n) begin
         state <= STATE0;
     end
-    // 初始化完毕且为电子琴模式
     else if(init_done) begin
         case(state)
             STATE0 : state <= IsPressed ? PRESSED : STATE0; // 监控按钮是否按下
@@ -308,9 +307,9 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
     // 查看lcd_show_char部分可以发现，使用状态机转换使得show_char_done的信号只有一个时钟周期
     else if(init_done && show_char_done) //展示数目的计数器：初始化完成和上一个char展示完成后，数目+1
         if(mode==1'b0) // 电子琴
-            cnt_ascii_num <= (cnt_ascii_num==K_CHAR_NUM-1) ? 1'd0 : cnt_ascii_num + 1'b1;   //等于是展示字符的坐标（单位：个字符）
+            cnt_ascii_num <= (cnt_ascii_num<K_CHAR_NUM-1) ? cnt_ascii_num + 1'b1 : 1'd0;   //等于是展示字符的坐标（单位：个字符）
         else // 音乐播放
-            cnt_ascii_num <= (cnt_ascii_num==M_CHAR_NUM-1) ? 1'd0 : cnt_ascii_num + 1'b1;
+            cnt_ascii_num <= (cnt_ascii_num<M_CHAR_NUM-1) ? cnt_ascii_num + 1'b1 : 1'd0;
     else
         cnt_ascii_num <= cnt_ascii_num;
 end
@@ -435,7 +434,7 @@ always@(posedge sys_clk or negedge sys_rst_n)
             if(cnt_ascii_num<5) begin //根据当前展示数目（字符坐标）给出展示位置（屏幕坐标）,先定横向x
                 start_x <= 9'd60+(cnt_ascii_num<<3); //(16x)8的字模，注意是横屏，160/2-8x8/2=48
             end else start_x <= (((cnt_ascii_num-6'd5)%20)<<3);
-        end else start_x <= 'd0;
+        end else start_x <= 'd160; // 丢出屏幕外
         end
     end else start_x <= 'd0;
 
@@ -454,7 +453,7 @@ always@(posedge sys_clk or negedge sys_rst_n)
             if(cnt_ascii_num<M_CHAR_NUM) begin  // 防止填充非必要区域
                 if(cnt_ascii_num<5) start_y <= 'd0;
                 else start_y <= 9'd80+(((cnt_ascii_num-6'd5)/6'd20+1'd1)<<4);                                                                          
-            end else start_y <= 'd0;
+            end else start_y <= 'd128; // 丢出屏幕外
         end
     end else start_y <= 'd0;
 

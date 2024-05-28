@@ -43,15 +43,17 @@ def midi_to_text(midi_file):
                 max = note
             if note < min:
                 min = note
-            #if note in note_to_text:
-            #    result.append(note_to_text[note])
-            #else:
-            #    result.append('0')  # 未定义的音符作为 0
+            result.append(str(note))
+#            if note in note_to_text:
+#                result.append(note_to_text[note])
+#            else:
+#                result.append('0')  # 未定义的音符作为 0
 
-    #return ','.join(result)
-    return f"min:{min}, max{max}"
+    return ','.join(result)
+#    return f"min:{min}, max{max}"
 
 # 示例使用
 midi_file = '1.mid'  # 替换为你的 MIDI 文件路径
 text_representation = midi_to_text(midi_file)
 print(text_representation)
+print(f"Length:{len(text_representation.split(','))}")

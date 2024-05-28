@@ -41,11 +41,15 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/pmod_decoder.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_music.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/pmod_decoder.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/notes128_pROM.v",
    "Type" : "verilog"
   }
  ],

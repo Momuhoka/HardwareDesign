@@ -9,6 +9,8 @@
         <File path="src/change_mode.v" type="file.verilog" enable="1"/>
         <File path="src/decoder.v" type="file.verilog" enable="0"/>
         <File path="src/gowin_prom/ascii_pROM.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_prom/note128_pROM.v" type="file.verilog" enable="0"/>
+        <File path="src/gowin_prom/notes128_pROM.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
         <File path="src/keyboard_mode_show.v" type="file.verilog" enable="0"/>
         <File path="src/keyboard_music_top.v" type="file.verilog" enable="1"/>

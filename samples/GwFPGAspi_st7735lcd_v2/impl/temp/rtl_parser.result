@@ -75,7 +75,7 @@
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 171,
+    "InstLine" : 170,
     "InstName" : "pmod_decoder",
     "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/pmod_decoder.v",
     "ModuleLine" : 5,
@@ -83,15 +83,25 @@
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 181,
+    "InstLine" : 182,
     "InstName" : "speaker_music",
     "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_music.v",
     "ModuleLine" : 5,
-    "ModuleName" : "speaker_music"
+    "ModuleName" : "speaker_music",
+    "SubInsts" : [
+     {
+      "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_music.v",
+      "InstLine" : 93,
+      "InstName" : "notes128_prom",
+      "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/notes128_pROM.v",
+      "ModuleLine" : 9,
+      "ModuleName" : "notes128_pROM"
+     }
+    ]
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 193,
+    "InstLine" : 197,
     "InstName" : "led_show",
     "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/led_show_test.v",
     "ModuleLine" : 6,

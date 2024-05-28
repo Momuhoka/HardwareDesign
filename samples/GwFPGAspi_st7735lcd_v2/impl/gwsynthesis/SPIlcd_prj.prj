@@ -14,8 +14,9 @@
         <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_write.v" type="verilog"/>
         <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\led_show_test.v" type="verilog"/>
         <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\menu_show.v" type="verilog"/>
-        <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v" type="verilog"/>
         <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\pmod_decoder.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_prom\notes128_pROM.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>

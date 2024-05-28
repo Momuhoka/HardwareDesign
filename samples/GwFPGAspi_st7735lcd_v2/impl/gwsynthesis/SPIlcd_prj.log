@@ -10,8 +10,9 @@ Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735l
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\lcd_write.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\led_show_test.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\menu_show.v'
-Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v'
 Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\pmod_decoder.v'
+Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v'
+Analyzing Verilog file 'D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_prom\notes128_pROM.v'
 Compiling module 'keyboard_music_top'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\keyboard_music_top.v":16)
 Compiling module 'Gowin_rPLL'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_rpll\gowin_rpll.v":9)
 Compiling module 'change_mode'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\change_mode.v":5)
@@ -23,7 +24,7 @@ Compiling module 'lcd_show_char'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAs
 Compiling module 'ascii_pROM'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_prom\ascii_pROM.v":9)
 Compiling module 'pmod_decoder'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\pmod_decoder.v":5)
 Compiling module 'speaker_music'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v":5)
-Extracting RAM for identifier 'NOTE'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\speaker_music.v":29)
+Compiling module 'notes128_pROM'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\gowin_prom\notes128_pROM.v":9)
 Compiling module 'led_show_test'("D:\OneDrive\GIt\HardwareDesign\samples\GwFPGAspi_st7735lcd_v2\src\led_show_test.v":6)
 NOTE  (EX0101) : Current top module is "keyboard_music_top"
 [5%] Running netlist conversion ...
