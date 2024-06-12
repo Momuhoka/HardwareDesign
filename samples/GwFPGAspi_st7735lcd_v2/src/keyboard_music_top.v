@@ -1,8 +1,8 @@
 //****************************************Copyright (c)***********************************//
 //----------------------------------------------------------------------------------------
 // Author：Pxm
-// File name: spi_st7735lcd
-// First establish Date: 2022/12/15 
+// File name: keyboard_music_top
+// First establish Date: 2024/5/30 
 // Descriptions: 顶层模块
 // OutPin--CS    屏（从机）片选
 // OutPin--RESET ST7735复位          （也有标RST）
@@ -13,7 +13,7 @@
 //----------------------------------------------------------------------------------------
 //****************************************************************************************//
 
-module  keyboard_music_top(
+module keyboard_music_top(
     input xtal_clk,
     input sys_rst_n,
     
@@ -56,6 +56,18 @@ wire [1:0] scale;  // 电子琴音调0-1-2，位数为4是为了去除Music模�
 wire IsPressed; // 按键按钮是否更新
 wire [15:0] background_color;   // 背景颜色
 wire [15:0] front_color;    // 文字颜色
+wire IsPause; // 歌曲暂停
+wire IsCycle; // 单曲循环
+
+wire [11:0] ram_addr_out;
+wire [11:0] music_len;
+wire [15:0] speaker_data;
+
+// 时长显示源数据
+wire [15:0] start_time;
+wire [15:0] end_time;
+wire [4:0] process;
+
 
 // 切换模式前清屏
 wire mode_rst;
@@ -133,7 +145,14 @@ menu_show menu_show(
     .IsPressed(IsPressed),
     .keyboard_data(keyboard_data),
     .scale(scale),
-    
+  
+    .IsPause(IsPause), // 歌曲暂停
+    .IsCycle(IsCycle), // 单曲循环
+
+    .start_time(start_time),
+    .end_time(end_time),
+    .process(process),
+
     .mode(mode),  
 
     .en_size(en_size),
@@ -179,18 +198,81 @@ pmod_decoder pmod_decoder(
 );
 
 // 音频播放
-speaker_music speaker_music(
+//speaker_music speaker_music(
+//    .sys_clk(sys_clk),  // 100Mhz
+//    .sys_rst_n(sys_rst_n),
+
+//    .init_done(init_done),
+//    .IsPressed(IsPressed),
+//    .keyboard_data(keyboard_data),
+
+//    .start_time(start_time),
+//    .end_time(end_time),
+//    .process(process),
+
+//    .mode(mode),
+
+//    .IsPause(IsPause), // 歌曲暂停
+//    .IsCycle(IsCycle), // 单曲循环
+//    .scale(scale), // 输出音调给显示屏显示状态
+//    .speaker(speaker)
+//);
+
+music_init music_init (
     .sys_clk(sys_clk),  // 100Mhz
     .sys_rst_n(sys_rst_n),
 
-    .init_done(init_done),
-    .IsPressed(IsPressed),
+    .IsPressed(IsPressed),    // 按钮更新
     .keyboard_data(keyboard_data),
 
-    .mode(mode),
+    .mode(mode), // 当前选定的模式
 
-    .scale(scale), // 输出音调给显示屏显示状态
+    .scale(scale), // 输出当前音调
+
+    .IsPause(IsPause), // 歌曲暂停
+    .IsCycle(IsCycle), // 单曲循环
+
+    .ram_addr_out(ram_addr_out), // 当前进度
+    .music_len(music_len), // 音乐长度 
+
+    .speaker_data(speaker_data), // 播放数据
+    .play(play) // 播放标志
+);
+
+speaker_play speaker_play (
+    .sys_clk(sys_clk),  // 100Mhz
+    .sys_rst_n(sys_rst_n),
+
+    .speaker_data(speaker_data), // 播放数据
+    .play(play), // 播放标志
+
     .speaker(speaker)
+);
+
+start_time_show start_time_show (
+    .sys_clk(sys_clk),  // 100Mhz
+    .sys_rst_n(sys_rst_n),
+    .ram_addr_out(ram_addr_out), // 当前进度
+
+    .start_time(start_time)
+);
+
+end_time_show end_time_show (
+    .sys_clk(sys_clk),  // 100Mhz
+    .sys_rst_n(sys_rst_n),
+    .music_len(music_len), // 音乐长度 
+
+    .end_time(end_time)
+);
+
+process_show process_show (
+    .sys_clk(sys_clk),  // 100Mhz
+    .sys_rst_n(sys_rst_n),
+
+    .ram_addr_out(ram_addr_out), // 当前进度
+    .music_len(music_len), // 音乐长度 
+
+    .process(process)
 );
 
 // LED输出

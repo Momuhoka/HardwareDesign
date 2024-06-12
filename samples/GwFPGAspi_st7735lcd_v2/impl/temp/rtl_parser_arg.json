@@ -9,11 +9,27 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/end_time_show.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/ascii_pROM.v",
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/music_pROM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/notes128_pROM.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_sp/music_SP.v",
    "Type" : "verilog"
   },
   {
@@ -41,15 +57,23 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/music_init.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/pmod_decoder.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_music.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/process_show.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/notes128_pROM.v",
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_play.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/start_time_show.v",
    "Type" : "verilog"
   }
  ],

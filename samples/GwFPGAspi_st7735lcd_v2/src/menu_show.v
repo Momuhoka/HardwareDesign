@@ -26,7 +26,11 @@ cnt_ascii_num  0   1   2   3   4   5   6   7
 第一行中间显示“Music”共5个字符；
 M   u   s   i   c
 77-117-115-105-99
-
+中央显示
+[1] : [SEQUE|CYCLE]
+[5] : [|>]--[PAUSE]
+[2]-[8] : [|<]-[>|] 
+[4]-[6] : [<<]-[>>]
 倒数第二行20字符
 TIME >00:00 / 00:00<
 最后一行20
@@ -47,9 +51,17 @@ module menu_show(
     input wire show_char_done,
     
     input wire IsPressed, // 接收按钮状态信息
-    input wire [3:0]   keyboard_data, // 接收矩阵键盘数据
-    input wire [1:0]   scale, // 接收当前音调数据
+    input wire [3:0] keyboard_data, // 接收矩阵键盘数据
+    input wire [1:0] scale, // 接收当前音调数据
     
+    // 音乐播放的模式切换
+    input wire IsPause, // 歌曲暂停
+    input wire IsCycle, // 单曲循环
+
+    input wire [15:0] start_time,
+    input wire [15:0] end_time,
+    input wire [4:0] process,
+
     input wire mode, // 当前选定的模式
     
     output wire en_size,
@@ -59,7 +71,8 @@ module menu_show(
     output reg [8:0] start_y,
 
     output reg [15:0] background_color, // 自行输出背景色
-    output reg [15:0] front_color// 自行输出字体颜色
+    output reg [15:0] front_color  // 自行输出字体颜色
+
 );      
 
 //****************** Parameter and Internal Signal *******************//        
@@ -69,15 +82,18 @@ reg     [6:0]   cnt_ascii_num;
 
 // 总字符数
 localparam K_CHAR_NUM = 7'd108;
-localparam M_CHAR_NUM = 7'd45;
+localparam M_CHAR_NUM = 7'd125;
 // 符号 < - > : | /
 localparam SPACE = 'd0; // 空格
 localparam LINE = 'd45-'d32; // -
+localparam EQUAL = 'd61-'d32; // =
 localparam LEFT_MORE = 'd60-'d32; // <
 localparam RIGHT_MORE = 'd62-'d32; // >
 localparam COLON = 'd58-'d32; // :
 localparam VER_BAR = 'd124-'d32; // |
 localparam SLASH = 'd47-'d32; // /
+localparam LSB = 'd91-'d32; // [
+localparam RSB = 'd93-'d32; // ]
 
 // 青花瓷
 localparam SAMPLE_QHC = 'o35321235321212122335356532112532132355235321323551212233535653211253213235523532132355; // 音符0-7使用8进制，翻转存储
@@ -123,7 +139,7 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
             end else if(cnt_ascii_num<75) begin // SAMPLE
                 background_color <= 16'hF810;
                 front_color <= 16'hFFFF;
-            end else if(cnt_ascii_num==77) begin // L/M/H
+            end else if(cnt_ascii_num>75 && cnt_ascii_num<79) begin // L/M/H
                 background_color <= 16'h815B;
                 front_color <= 16'hFFFF;
             end else if(cnt_ascii_num>79 && cnt_ascii_num<88) begin // 曲目名
@@ -141,28 +157,147 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
             if(cnt_ascii_num<'d5) begin // MUSIC
                 background_color <= 16'hAF7D;
                 front_color <= 16'h0000;
-            end else if(cnt_ascii_num<'d9 && cnt_ascii_num>'d4) begin
-                background_color <= 16'h815B;
-                front_color <= 16'hFFFF;
-            end else if(cnt_ascii_num=='d25 || cnt_ascii_num=='d26) begin
-                if(IsPause) begin
-                    background_color <= 16'hFA20;
-                    front_color <= 16'hFFFF;
-                end else begin
-                    background_color <= 16'h2E65;
-                    front_color <= 16'hFFFF;
+            end else if(cnt_ascii_num<'d85) begin
+                if(cnt_ascii_num<'d8 && cnt_ascii_num>'d4) begin // [1]
+                    if(keyboard_data==4'h1 && IsPressed) begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h0679;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d28 && cnt_ascii_num>'d24) begin // [5]
+                    if(keyboard_data==4'h5 && IsPressed) begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h0679;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d48 && cnt_ascii_num>'d44) begin // [2]
+                    if(keyboard_data==4'h2 && IsPressed) begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h0679;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d52 && cnt_ascii_num>'d48) begin // [8]
+                    if(keyboard_data==4'h8 && IsPressed) begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h0679;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d58 && cnt_ascii_num>'d55) begin // [|<]
+                    if(keyboard_data==4'h2 && IsPressed) begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h0679;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d63 && cnt_ascii_num>'d60) begin // [>|]
+                    if(keyboard_data==4'h8 && IsPressed) begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h0679;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d68 && cnt_ascii_num>'d64) begin // [4]
+                    if(keyboard_data==4'h4 && IsPressed) begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h0679;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d72 && cnt_ascii_num>'d68) begin // [6]
+                    if(keyboard_data==4'h6 && IsPressed) begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h0679;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d78 && cnt_ascii_num>'d75) begin // [<<]
+                    if(keyboard_data==4'h4 && IsPressed) begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h0679;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d83 && cnt_ascii_num>'d80) begin // [>>]
+                    if(keyboard_data==4'h6 && IsPressed) begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h0679;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d17 && cnt_ascii_num>'d11) begin // SEQUE
+                    if(!IsCycle) begin
+                        background_color <= 16'hFB08;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'hAF7D;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d23 && cnt_ascii_num>'d17) begin // CYCLE
+                    if(IsCycle) begin
+                        background_color <= 16'hF892;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'hAF7D;
+                        front_color <= 16'h0000;
+                    end
+                end else if(cnt_ascii_num<'d43 && cnt_ascii_num>'d37) begin // || 或者 |>
+                    if(IsPause) begin
+                        background_color <= 16'hFA20;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end
+                end else if(cnt_ascii_num=='d32 || cnt_ascii_num=='d33) begin // PAUSE 或者 PALY~
+                    if(IsPause) begin
+                        background_color <= 16'hFA20;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end
+                end else begin // 正常显示
+                    background_color <= 16'hAF7D;
+                    front_color <= 16'h0000;
                 end
-            end else if(cnt_ascii_num=='d28 || cnt_ascii_num=='d29) begin
-                if(IsRelay) begin
-                    background_color <= 16'hF892;
+            end else begin
+                if(cnt_ascii_num>'d84 && cnt_ascii_num<'d89) begin
+                    background_color <= 16'h815B;
                     front_color <= 16'hFFFF;
-                end else begin
-                    background_color <= 16'hFB08;
-                    front_color <= 16'hFFFF;
+                end else if(cnt_ascii_num=='d105 || cnt_ascii_num=='d106) begin
+                    if(IsPause) begin
+                        background_color <= 16'hFA20;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'h2E65;
+                        front_color <= 16'hFFFF;
+                    end
+                end else if(cnt_ascii_num=='d107 || cnt_ascii_num=='d108) begin
+                    if(IsCycle) begin
+                        background_color <= 16'hF892;
+                        front_color <= 16'hFFFF;
+                    end else begin
+                        background_color <= 16'hFB08;
+                        front_color <= 16'hFFFF;
+                    end
+                end else begin // 正常显示
+                    background_color <= 16'hE73F;
+                    front_color <= 16'h0000;
                 end
-            end else begin // 正常显示
-                background_color <= 16'hE73F;
-                front_color <= 16'h0000;
             end
         end
     end else begin
@@ -170,6 +305,10 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
         front_color <= 16'h0000;
     end
 end
+
+// 示例乐谱进度
+reg [349:0] process_score;
+reg [6:0] process_len;
 
 // 状态机
 reg [2:0] state;
@@ -210,13 +349,6 @@ reg [349:0] sample_score;
 reg [6:0] sample_len;
 reg [63:0] sample_name;
 
-reg [349:0] process_score;
-reg [6:0] process_len;
-
-// 音乐播放的模式切换
-reg IsPause; // 歌曲暂停
-reg IsRelay; // 单曲循环
-
 always@(posedge sys_clk or negedge sys_rst_n) begin
     if(!sys_rst_n) begin
         sample_score <= SAMPLE_QHC;
@@ -224,18 +356,16 @@ always@(posedge sys_clk or negedge sys_rst_n) begin
         sample_name <= QHC_NAME;
         process_score <= SAMPLE_QHC;
         process_len <= 7'd0;
-        IsPause <= 1'b0;    // 是否暂停
-        IsRelay <= 1'b0;    // 是否循环
     end else if(init_done) begin
         // 电子琴部分
         if(state==PROCESS) begin
             // 按对乐谱第一个值，乐谱进一位
-            if(process_len < sample_len) begin
-                process_len <= process_len+1'd1;
-                process_score <= (process_score>>3);
-            end else begin
+            if(process_len==(sample_len-1)) begin
                 process_len <= 7'd0;
                 process_score <= sample_score;
+            end else begin
+                process_len <= process_len+1'd1;
+                process_score <= (process_score>>3);
             end 
         // F/E切换乐谱
         end else if(state==CHANSAM) begin
@@ -265,12 +395,12 @@ always@(posedge sys_clk or negedge sys_rst_n) begin
                 sample_name <= QBY_NAME;
                 process_score <= SAMPLE_QBY;
             end
-        // 音乐盒部分
-        end else if(state==MUSIC) begin
-            case(keyboard_data)
-                4'h5 : IsPause <= ~IsPause; // 按键5切换暂停状态
-                4'h1 : IsRelay <= ~IsRelay; // 按键1切换循环状态
-            endcase
+//         音乐盒部分
+//        end else if(state==MUSIC) begin
+//            case(keyboard_data)
+//                4'h5 : IsPause <= ~IsPause; // 按键5切换暂停状态
+//                4'h1 : IsCycle <= ~IsCycle; // 按键1切换循环状态
+//            endcase
         end
     end
 end
@@ -300,6 +430,7 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
         show_char_flag <= 1'b0;
 end
 
+
 // 显示字符加一
 always @(posedge sys_clk or negedge sys_rst_n) begin
     if(!sys_rst_n)
@@ -313,6 +444,7 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
     else
         cnt_ascii_num <= cnt_ascii_num;
 end
+
 
 always @(posedge sys_clk or negedge sys_rst_n) begin
     if(!sys_rst_n)
@@ -370,10 +502,10 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
                     end else if(cnt_ascii_num>79 && cnt_ascii_num<88) begin // 乐谱名
                         ascii_num <= sample_name[(('d88-cnt_ascii_num)<<3)-1 -: 8]-8'd32; // 16位一个值，反向
                     end else if(cnt_ascii_num>89 && cnt_ascii_num[0]==1) begin
-                        if(((cnt_ascii_num-'d90)>>1)+process_len<sample_len)
+                        if((((cnt_ascii_num-'d90)>>1)+process_len)<sample_len)
                             ascii_num <= process_score[((cnt_ascii_num-'d90)>>1)*3+:3]+'d48-'d32; // 0的ascii码为48，3位一个值，反向
                         else ascii_num <= SPACE;
-                    end else ascii_num <= 1'd0;
+                    end else ascii_num <= SPACE;
                 end
             endcase
         // 音乐播放
@@ -381,6 +513,11 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
             case(cnt_ascii_num) //根据当前展示数目（字符坐标）给出展示内容（ascii码）
                 //          M   u   s   i   c
                 //          77-117-115-105-99
+                //          中央显示
+                //      [1] : [SEQUE|CYCLE] 
+                //      [5] : [|>]--[PAUSE] 
+                //      [2]-[8] : [|<]-[>|] 
+                //      [4]-[6] : [<<]-[>>] 
                 //  char        T   I   M   E   >   0   :   /   <   |   @   S   =   -   #   C
                 //ascii码       84  73  77  69  62  48  58  47  60 124  64  83  61  45  35  67 = 库内码+32 
                 //          TIME >00:00 / 00:00<
@@ -391,28 +528,88 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
                 2 : ascii_num <= 'd115-'d32;  // S
                 3 : ascii_num <= 'd105-'d32; // I
                 4 : ascii_num <= 'd99-'d32; // C
-                5 : ascii_num <= 'd84-'d32; // T
-                6 : ascii_num <= 'd73-'d32; // I
-                7 : ascii_num <= 'd77-'d32; // M
-                8 : ascii_num <= 'd69-'d32; // E
-                9 : ascii_num <= SPACE; // 空格
-                10 : ascii_num <= RIGHT_MORE; // >
-                13 : ascii_num <= COLON; // :
-                16 : ascii_num <= SPACE; // 空格
-                17 : ascii_num <= SLASH; // 斜杠/
-                18 : ascii_num <= SPACE; // 空格
-                21 : ascii_num <= COLON; // :
-                24 : ascii_num <= LEFT_MORE; // <
-                25 : ascii_num <= VER_BAR; // |
-                26 : ascii_num <= IsPause ? 'd124-'d32 : 'd62-'d32; // 取决于播放模式
-                27 : ascii_num <= SPACE; // 空格
-                28 : ascii_num <= IsRelay ? 'd35-'d32 : 'd64-'d32; // 取决于循环模式
-                29 : ascii_num <= IsRelay ? 'd67-'d32 : 'd83-'d32; // 取决于循环模式
-                30 : ascii_num <= SPACE; // 空格
+
+                6 : ascii_num <= 'd49-'d32; // 1
+                12 : ascii_num <= 'd83-'d32; // S
+                13 : ascii_num <= 'd69-'d32; // E
+                14 : ascii_num <= 'd81-'d32; // Q
+                15 : ascii_num <= 'd85-'d32; // U
+                16 : ascii_num <= 'd69-'d32; // E
+                17 : ascii_num <= VER_BAR; // |
+                18 : ascii_num <= 'd67-'d32; // C
+                19 : ascii_num <= 'd89-'d32; // Y
+                20 : ascii_num <= 'd67-'d32; // C
+                21 : ascii_num <= 'd76-'d32; // L
+                22 : ascii_num <= 'd69-'d32; // E
+
+                26 : ascii_num <= 'd53-'d32; // 5
+                32 : ascii_num <= VER_BAR; // |
+                33 : ascii_num <= IsPause ? 'd124-'d32 : 'd62-'d32; // 取决于播放模式
+                35 : ascii_num <= LINE; // -
+                36 : ascii_num <= LINE; // -
+                38 : ascii_num <= 'd80-'d32; // P
+                39 : ascii_num <= IsPause ? 'd65-'d32 : 'd76-'d32; // A 或者 L
+                40 : ascii_num <= IsPause ? 'd85-'d32 : 'd65-'d32; // U 或者 A
+                41 : ascii_num <= IsPause ? 'd83-'d32 : 'd89-'d32; // S 或者 Y
+                42 : ascii_num <= IsPause ? 'd69-'d32 : 'd126-'d32; // E 或者 ~
+
+                46 : ascii_num <= 'd50-'d32; // 2
+                48 : ascii_num <= LINE; // -
+                50 : ascii_num <= 'd56-'d32; // 8
+                56 : ascii_num <= VER_BAR; // |
+                57 : ascii_num <= LEFT_MORE; // <
+                59 : ascii_num <= LINE; // -
+                61 : ascii_num <= RIGHT_MORE; // >
+                62 : ascii_num <= VER_BAR; // |
+
+                66 : ascii_num <= 'd52-'d32; // 4
+                68 : ascii_num <= LINE; // -
+                70 : ascii_num <= 'd54-'d32; // 6
+                76 : ascii_num <= LEFT_MORE; // <
+                77 : ascii_num <= LEFT_MORE; // <
+                79 : ascii_num <= LINE; // -
+                81 : ascii_num <= RIGHT_MORE; // >
+                82 : ascii_num <= RIGHT_MORE; // >
+
+                85 : ascii_num <= 'd84-'d32; // T
+                86 : ascii_num <= 'd73-'d32; // I
+                87 : ascii_num <= 'd77-'d32; // M
+                88 : ascii_num <= 'd69-'d32; // E
+                90 : ascii_num <= RIGHT_MORE; // >
+                91 : ascii_num <= start_time[15:12]+'d48-'d32;
+                92 : ascii_num <= start_time[11:8]+'d48-'d32;
+                93 : ascii_num <= COLON; // :
+                94 : ascii_num <= start_time[7:4]+'d48-'d32;
+                95 : ascii_num <= start_time[3:0]+'d48-'d32;
+                97 : ascii_num <= SLASH; // /
+                99 : ascii_num <= end_time[15:12]+'d48-'d32;
+                100 : ascii_num <= end_time[11:8]+'d48-'d32;
+                101 : ascii_num <= COLON; // :
+                102 : ascii_num <= end_time[7:4]+'d48-'d32;
+                103 : ascii_num <= end_time[3:0]+'d48-'d32;
+                104 : ascii_num <= LEFT_MORE; // <
+                105 : ascii_num <= VER_BAR; // |
+                106 : ascii_num <= IsPause ? 'd124-'d32 : 'd62-'d32; // 取决于播放模式
+                107 : ascii_num <= IsCycle ? 'd35-'d32 : 'd64-'d32; // 取决于循环模式
+                108 : ascii_num <= IsCycle ? 'd67-'d32 : 'd83-'d32; // 取决于循环模式
                 default: begin
-                    if(cnt_ascii_num<25) begin  // 数字位
-                        ascii_num <= 'd48-'d32;    // 临时置数字0
-                    end else ascii_num <= LINE;  // 进度条暂时为-
+                    if((cnt_ascii_num==5)||(cnt_ascii_num==25)||(cnt_ascii_num==45)||(cnt_ascii_num==65)||
+                       (cnt_ascii_num==11)||(cnt_ascii_num==31)||(cnt_ascii_num==49)||(cnt_ascii_num==69)||
+                       (cnt_ascii_num==37)||(cnt_ascii_num==55)||(cnt_ascii_num==60)||(cnt_ascii_num==75)||
+                       (cnt_ascii_num==80)) 
+                        ascii_num <= LSB;
+                    else if((cnt_ascii_num==7)||(cnt_ascii_num==27)||(cnt_ascii_num==47)||(cnt_ascii_num==67)||
+                           (cnt_ascii_num==51)||(cnt_ascii_num==71)||(cnt_ascii_num==23)||(cnt_ascii_num==43)||
+                           (cnt_ascii_num==63)||(cnt_ascii_num==83)||(cnt_ascii_num==34)||(cnt_ascii_num==58)||
+                           (cnt_ascii_num==78)) 
+                        ascii_num <= RSB;
+                    else if((cnt_ascii_num==9)||(cnt_ascii_num==29)||(cnt_ascii_num==53)||(cnt_ascii_num==73))
+                        ascii_num <= COLON;
+                    else if(cnt_ascii_num>108) begin
+                        // 有16个长度
+                        if((cnt_ascii_num-109)<process) ascii_num <= EQUAL; // 已播放进度条为 = 
+                        else ascii_num <= LINE; // 未播放进度条为 -
+                    end else ascii_num <= SPACE;
                 end
             endcase
         end
@@ -428,12 +625,13 @@ always@(posedge sys_clk or negedge sys_rst_n)
                 if(cnt_ascii_num<8) begin //根据当前展示数目（字符坐标）给出展示位置（屏幕坐标）,先定横向x
                     start_x <= 7'd48+(cnt_ascii_num<<3); //(16x)8的字模，注意是横屏，160/2-8x8/2=48
                 end else start_x <= 7'd1+(((cnt_ascii_num-'d8)%20)<<3); //前面+1是因为字符贴左边界太近于是进行调整
-            end else start_x <= 1'd0;
+            end else start_x <= 'd160; // 丢出屏幕外
         end else begin
             if(cnt_ascii_num<M_CHAR_NUM) begin  // 防止填充非必要区域
             if(cnt_ascii_num<5) begin //根据当前展示数目（字符坐标）给出展示位置（屏幕坐标）,先定横向x
                 start_x <= 9'd60+(cnt_ascii_num<<3); //(16x)8的字模，注意是横屏，160/2-8x8/2=48
-            end else start_x <= (((cnt_ascii_num-6'd5)%20)<<3);
+            end else if(cnt_ascii_num<85) start_x <= 3'd6+(((cnt_ascii_num-6'd5)%20)<<3);
+            else start_x <= (((cnt_ascii_num-6'd5)%20)<<3);
         end else start_x <= 'd160; // 丢出屏幕外
         end
     end else start_x <= 'd0;
@@ -448,11 +646,12 @@ always@(posedge sys_clk or negedge sys_rst_n)
                 else if(cnt_ascii_num<68)
                     start_y <= 7'd16+(((cnt_ascii_num-7'd8)/7'd20+1'd1)<<4);
                 else start_y <= 7'd80+(((cnt_ascii_num-7'd68)/7'd20+1'd1)<<4);
-            end else start_y <= 1'd0;
+            end else start_y <= 'd128; // 丢出屏幕外
         end else begin
             if(cnt_ascii_num<M_CHAR_NUM) begin  // 防止填充非必要区域
                 if(cnt_ascii_num<5) start_y <= 'd0;
-                else start_y <= 9'd80+(((cnt_ascii_num-6'd5)/6'd20+1'd1)<<4);                                                                          
+                else if(cnt_ascii_num<85) start_y <= 6'd8+(((cnt_ascii_num-6'd5)/6'd20+1'd1)<<4);     
+                else start_y <= 9'd80+(((cnt_ascii_num-7'd85)/6'd20+1'd1)<<4);  
             end else start_y <= 'd128; // 丢出屏幕外
         end
     end else start_y <= 'd0;

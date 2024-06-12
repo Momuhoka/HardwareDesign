@@ -14,3 +14,4 @@
 -read_mode bypass
 -write_mode normal
 -reset_mode sync
+-init_file D:/OneDrive/GIt/HardwareDesign/codes/2.mi

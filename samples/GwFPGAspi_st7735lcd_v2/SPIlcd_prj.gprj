@@ -7,11 +7,12 @@
     <FileList>
         <File path="src/centerctrl.v" type="file.verilog" enable="1"/>
         <File path="src/change_mode.v" type="file.verilog" enable="1"/>
-        <File path="src/decoder.v" type="file.verilog" enable="0"/>
+        <File path="src/end_time_show.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_prom/ascii_pROM.v" type="file.verilog" enable="1"/>
-        <File path="src/gowin_prom/note128_pROM.v" type="file.verilog" enable="0"/>
+        <File path="src/gowin_prom/music_pROM.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_prom/notes128_pROM.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_sp/music_SP.v" type="file.verilog" enable="1"/>
         <File path="src/keyboard_mode_show.v" type="file.verilog" enable="0"/>
         <File path="src/keyboard_music_top.v" type="file.verilog" enable="1"/>
         <File path="src/lcd_init.v" type="file.verilog" enable="1"/>
@@ -19,11 +20,15 @@
         <File path="src/lcd_write.v" type="file.verilog" enable="1"/>
         <File path="src/led_show_test.v" type="file.verilog" enable="1"/>
         <File path="src/menu_show.v" type="file.verilog" enable="1"/>
+        <File path="src/music_init.v" type="file.verilog" enable="1"/>
         <File path="src/music_mode_show.v" type="file.verilog" enable="0"/>
         <File path="src/pmod_decoder.v" type="file.verilog" enable="1"/>
+        <File path="src/process_show.v" type="file.verilog" enable="1"/>
         <File path="src/show_string_number_ctrl.v" type="file.verilog" enable="0"/>
-        <File path="src/speaker_music.v" type="file.verilog" enable="1"/>
-        <File path="src/spi_st7735lcd.v" type="file.verilog" enable="0"/>
+        <File path="src/speaker_music.v" type="file.verilog" enable="0"/>
+        <File path="src/speaker_play.v" type="file.verilog" enable="1"/>
+        <File path="src/start_time_show.v" type="file.verilog" enable="1"/>
+        <File path="src/time_show.v" type="file.verilog" enable="0"/>
         <File path="src/SPIlcd_prj.cst" type="file.cst" enable="1"/>
     </FileList>
 </Project>

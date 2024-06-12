@@ -17,7 +17,7 @@
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 66,
+    "InstLine" : 78,
     "InstName" : "change_mode",
     "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/change_mode.v",
     "ModuleLine" : 5,
@@ -25,7 +25,7 @@
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 77,
+    "InstLine" : 89,
     "InstName" : "lcd_init_inst",
     "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_init.v",
     "ModuleLine" : 7,
@@ -33,7 +33,7 @@
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 95,
+    "InstLine" : 107,
     "InstName" : "centerctrl_inst",
     "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/centerctrl.v",
     "ModuleLine" : 6,
@@ -41,7 +41,7 @@
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 113,
+    "InstLine" : 125,
     "InstName" : "lcd_write_inst",
     "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_write.v",
     "ModuleLine" : 7,
@@ -49,15 +49,15 @@
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 127,
+    "InstLine" : 139,
     "InstName" : "menu_show",
     "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/menu_show.v",
-    "ModuleLine" : 43,
+    "ModuleLine" : 47,
     "ModuleName" : "menu_show"
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 150,
+    "InstLine" : 169,
     "InstName" : "lcd_show_char_inst",
     "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v",
     "ModuleLine" : 6,
@@ -75,7 +75,7 @@
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 170,
+    "InstLine" : 189,
     "InstName" : "pmod_decoder",
     "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/pmod_decoder.v",
     "ModuleLine" : 5,
@@ -83,25 +83,73 @@
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 182,
-    "InstName" : "speaker_music",
-    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_music.v",
-    "ModuleLine" : 5,
-    "ModuleName" : "speaker_music",
+    "InstLine" : 221,
+    "InstName" : "music_init",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/music_init.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "music_init",
     "SubInsts" : [
      {
-      "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_music.v",
-      "InstLine" : 93,
+      "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/music_init.v",
+      "InstLine" : 87,
       "InstName" : "notes128_prom",
       "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/notes128_pROM.v",
       "ModuleLine" : 9,
       "ModuleName" : "notes128_pROM"
+     },
+     {
+      "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/music_init.v",
+      "InstLine" : 97,
+      "InstName" : "music_prom",
+      "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/music_pROM.v",
+      "ModuleLine" : 9,
+      "ModuleName" : "music_pROM"
+     },
+     {
+      "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/music_init.v",
+      "InstLine" : 110,
+      "InstName" : "music_sp",
+      "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_sp/music_SP.v",
+      "ModuleLine" : 9,
+      "ModuleName" : "music_SP"
      }
     ]
    },
    {
     "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
-    "InstLine" : 197,
+    "InstLine" : 242,
+    "InstName" : "speaker_play",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_play.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "speaker_play"
+   },
+   {
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
+    "InstLine" : 252,
+    "InstName" : "start_time_show",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/start_time_show.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "start_time_show"
+   },
+   {
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
+    "InstLine" : 260,
+    "InstName" : "end_time_show",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/end_time_show.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "end_time_show"
+   },
+   {
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
+    "InstLine" : 268,
+    "InstName" : "process_show",
+    "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/process_show.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "process_show"
+   },
+   {
+    "InstFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
+    "InstLine" : 279,
     "InstName" : "led_show",
     "ModuleFile" : "D:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/led_show_test.v",
     "ModuleLine" : 6,

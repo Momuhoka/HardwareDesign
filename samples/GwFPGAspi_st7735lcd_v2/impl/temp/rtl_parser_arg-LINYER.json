@@ -1,0 +1,76 @@
+{
+ "Files" : [
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/centerctrl.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/change_mode.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/ascii_pROM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/music_pROM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_prom/notes128_pROM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/gowin_sp/music_SP.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/keyboard_music_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_init.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_show_char.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/lcd_write.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/led_show_test.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/menu_show.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/music_init.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/pmod_decoder.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/src/speaker_music.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/OneDrive/GIt/HardwareDesign/samples/GwFPGAspi_st7735lcd_v2/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

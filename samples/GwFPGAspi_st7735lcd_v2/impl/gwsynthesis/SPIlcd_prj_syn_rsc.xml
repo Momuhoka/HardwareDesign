@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module name="keyboard_music_top" Lut="3">
     <SubModule name="uPLL"/>
-    <SubModule name="change_mode" Register="2" Lut="2"/>
-    <SubModule name="lcd_init_inst" Register="68" Lut="241"/>
+    <SubModule name="change_mode" Register="2" Lut="3"/>
+    <SubModule name="lcd_init_inst" Register="68" Lut="240"/>
     <SubModule name="centerctrl_inst" Register="10" Lut="12"/>
     <SubModule name="lcd_write_inst" Register="21" Lut="32"/>
-    <SubModule name="menu_show" Register="405" Alu="43" Lut="724"/>
-    <SubModule name="lcd_show_char_inst" Register="53" Alu="9" Lut="113">
+    <SubModule name="menu_show" Register="405" Alu="41" Lut="937"/>
+    <SubModule name="lcd_show_char_inst" Register="53" Alu="9" Lut="124">
         <SubModule name="ascii_prom" Bsram="2"/>
     </SubModule>
-    <SubModule name="pmod_decoder" Register="31" Lut="89"/>
-    <SubModule name="speaker_music" Register="59" Lut="159">
+    <SubModule name="pmod_decoder" Register="31" Lut="85"/>
+    <SubModule name="music_init" Register="142" Lut="323">
         <SubModule name="notes128_prom" Bsram="1"/>
+        <SubModule name="music_prom" Register="1" Lut="10" Bsram="6"/>
+        <SubModule name="music_sp" Bsram="4"/>
     </SubModule>
-    <SubModule name="led_show" Register="5" Lut="5"/>
+    <SubModule name="speaker_play" Register="30" Lut="91"/>
+    <SubModule name="start_time_show" Register="51" Alu="20" Lut="49"/>
+    <SubModule name="end_time_show" Register="51" Alu="20" Lut="50"/>
+    <SubModule name="process_show" Register="32" Alu="34" Lut="21"/>
+    <SubModule name="led_show" Register="5" Lut="4"/>
 </Module>

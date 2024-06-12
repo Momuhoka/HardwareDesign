@@ -13,9 +13,11 @@ note_file = 'notes.txt'
 notes = note_to_dict(note_file)
 
 values = ''
-for value in notes.values():
-	values = values + f"{value:04X}\n"
+for index, value in enumerate(notes.values()):
+	values = values + f"{index}:'{value:04X}',\n"
 	
-head = f"#File_format=Hex\n#Address_depth={len(notes)}\n#Data_width=16\n"
-result = head + values
-print(result)
+#head = f"#File_format=Hex\n#Address_depth={len(notes)}\n#Data_width=16\n"
+#result = head + values
+#print(result)
+print(values)
+

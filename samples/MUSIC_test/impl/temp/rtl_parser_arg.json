@@ -1,23 +1,23 @@
 {
  "Files" : [
   {
-   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/LED_Show.v",
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/LED_Show.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/Music.v",
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/Music.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/PmodKYPD_Decoder.v",
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/PmodKYPD_Decoder.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/PmodKYPD_Top.v",
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/PmodKYPD_Top.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/gowin_rpll/rPLL_27_100.v",
+   "Path" : "C:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/src/gowin_rpll/rPLL_27_100.v",
    "Type" : "verilog"
   }
  ],
@@ -25,7 +25,7 @@
 
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "D:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/impl/temp/rtl_parser.result",
+ "ResultFile" : "C:/OneDrive/GIt/HardwareDesign/samples/MUSIC_test/impl/temp/rtl_parser.result",
  "Top" : "",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"
