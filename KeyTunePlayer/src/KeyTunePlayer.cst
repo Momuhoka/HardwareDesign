@@ -1,0 +1,54 @@
+//Copyright (C)2014-2022 Gowin Semiconductor Corporation.
+//All rights reserved. 
+//File Title: Physical Constraints file
+//GOWIN Version: 1.9.8.05
+//Part Number: GW1NR-LV9QN88PC6/I5
+//Device: GW1NR-9C
+//Created Time: Thu 06 13 09:56:25 2024
+
+IO_LOC "speaker" 25;
+IO_PORT "speaker" PULL_MODE=UP DRIVE=8;
+IO_LOC "led[5]" 16;
+IO_PORT "led[5]" PULL_MODE=UP DRIVE=8;
+IO_LOC "led[4]" 15;
+IO_PORT "led[4]" PULL_MODE=UP DRIVE=8;
+IO_LOC "led[3]" 14;
+IO_PORT "led[3]" PULL_MODE=UP DRIVE=8;
+IO_LOC "led[2]" 13;
+IO_PORT "led[2]" PULL_MODE=UP DRIVE=8;
+IO_LOC "led[1]" 11;
+IO_PORT "led[1]" PULL_MODE=UP DRIVE=8;
+IO_LOC "led[0]" 10;
+IO_PORT "led[0]" PULL_MODE=UP DRIVE=8;
+IO_LOC "lcd_led" 57;
+IO_PORT "lcd_led" PULL_MODE=UP DRIVE=8;
+IO_LOC "lcd_cs" 56;
+IO_PORT "lcd_cs" PULL_MODE=UP DRIVE=8;
+IO_LOC "lcd_mosi" 53;
+IO_PORT "lcd_mosi" PULL_MODE=UP DRIVE=8;
+IO_LOC "lcd_sclk" 51;
+IO_PORT "lcd_sclk" PULL_MODE=UP DRIVE=8;
+IO_LOC "lcd_dc" 55;
+IO_PORT "lcd_dc" PULL_MODE=UP DRIVE=8;
+IO_LOC "lcd_rst" 54;
+IO_PORT "lcd_rst" PULL_MODE=UP DRIVE=8;
+IO_LOC "Col[3]" 79;
+IO_PORT "Col[3]" PULL_MODE=UP DRIVE=8;
+IO_LOC "Col[2]" 80;
+IO_PORT "Col[2]" PULL_MODE=UP DRIVE=8;
+IO_LOC "Col[1]" 81;
+IO_PORT "Col[1]" PULL_MODE=UP DRIVE=8;
+IO_LOC "Col[0]" 82;
+IO_PORT "Col[0]" PULL_MODE=UP DRIVE=8;
+IO_LOC "Row[3]" 86;
+IO_PORT "Row[3]" PULL_MODE=UP;
+IO_LOC "Row[2]" 85;
+IO_PORT "Row[2]" PULL_MODE=UP;
+IO_LOC "Row[1]" 84;
+IO_PORT "Row[1]" PULL_MODE=UP;
+IO_LOC "Row[0]" 83;
+IO_PORT "Row[0]" PULL_MODE=UP;
+IO_LOC "sys_rst_n" 3;
+IO_PORT "sys_rst_n" PULL_MODE=UP;
+IO_LOC "xtal_clk" 52;
+IO_PORT "xtal_clk" PULL_MODE=UP;

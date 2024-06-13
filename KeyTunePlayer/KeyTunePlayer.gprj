@@ -1,0 +1,32 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/centerctrl.v" type="file.verilog" enable="1"/>
+        <File path="src/change_mode.v" type="file.verilog" enable="1"/>
+        <File path="src/end_time_show.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_prom/ascii_pROM.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_prom/music_pROM.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_prom/notes128_pROM.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/Gowin_rPLL.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_sp/music_SP.v" type="file.verilog" enable="1"/>
+        <File path="src/keyboard_music_top.v" type="file.verilog" enable="1"/>
+        <File path="src/lcd_init.v" type="file.verilog" enable="1"/>
+        <File path="src/lcd_show_char.v" type="file.verilog" enable="1"/>
+        <File path="src/lcd_write.v" type="file.verilog" enable="1"/>
+        <File path="src/led_show_test.v" type="file.verilog" enable="1"/>
+        <File path="src/menu_show.v" type="file.verilog" enable="1"/>
+        <File path="src/music_init.v" type="file.verilog" enable="1"/>
+        <File path="src/pmod_decoder.v" type="file.verilog" enable="1"/>
+        <File path="src/process_show.v" type="file.verilog" enable="1"/>
+        <File path="src/speaker_play.v" type="file.verilog" enable="1"/>
+        <File path="src/start_time_show.v" type="file.verilog" enable="1"/>
+        <File path="src/KeyTunePlayer.cst" type="file.cst" enable="1"/>
+        <File path="src/AsciiROM_8x2660.mi" type="file.other" enable="1"/>
+        <File path="src/Music.mi" type="file.other" enable="1"/>
+        <File path="src/Notes_128.mi" type="file.other" enable="1"/>
+    </FileList>
+</Project>

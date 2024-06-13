@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW1NR-9C" package="QFN88P" speed="6" partNumber="GW1NR-LV9QN88PC6/I5"/>
+    <FileList>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\centerctrl.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\change_mode.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\end_time_show.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\keyboard_music_top.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\lcd_init.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\lcd_show_char.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\lcd_write.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\led_show_test.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\menu_show.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\music_init.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\pmod_decoder.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\process_show.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\speaker_play.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\start_time_show.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\gowin_prom\ascii_pROM.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\gowin_prom\music_pROM.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\gowin_sp\music_SP.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\gowin_rpll\Gowin_rPLL.v" type="verilog"/>
+        <File path="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\src\gowin_prom\notes128_pROM.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="dsp_balance" value="0"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="D:\OneDrive\GIt\HardwareDesign\KeyTunePlayer\impl\gwsynthesis\KeyTunePlayer.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="1"/>
+        <Option type="verilog_language" value="verilog-2001"/>
+        <Option type="vhdl_language" value="vhdl-1993"/>
+    </OptionList>
+</Project>

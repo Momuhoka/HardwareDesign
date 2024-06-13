@@ -1,0 +1,88 @@
+{
+ "Files" : [
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/centerctrl.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/change_mode.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/end_time_show.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/gowin_prom/ascii_pROM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/gowin_prom/music_pROM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/gowin_prom/notes128_pROM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/gowin_rpll/Gowin_rPLL.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/gowin_sp/music_SP.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/keyboard_music_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/lcd_init.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/lcd_show_char.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/lcd_write.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/led_show_test.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/menu_show.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/music_init.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/pmod_decoder.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/process_show.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/speaker_play.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/src/start_time_show.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "D:/OneDrive/GIt/HardwareDesign/KeyTunePlayer/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}
